@@ -16,9 +16,21 @@
 
     <EditText
         android:id="@+id/timer_amount"
+        android:inputType="number"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+
+        android:text="add"
+        android:onClick="goToTimer"
+        android:layout_above="@+id/start"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/start"

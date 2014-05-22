@@ -73,7 +73,7 @@ public class TimerActivity extends Activity implements View.OnClickListener {
         public void onTick(long millisUntilFinished){
             //timeLeft.setText("" + millisUntilFinished / 1000 + "." + millisUntilFinished % 1000);
             double time = (double) millisUntilFinished;
-            DecimalFormat df = new DecimalFormat("0.000");
+            DecimalFormat df = new DecimalFormat("0.00");
             timeLeft.setText(df.format(time/1000));
         }
     }
