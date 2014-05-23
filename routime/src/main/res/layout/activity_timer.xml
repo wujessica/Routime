@@ -24,8 +24,17 @@
         android:id="@+id/button"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:text="start"
+        android:layout_above="@+id/restart"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/restart"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="restart"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="start"/>
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

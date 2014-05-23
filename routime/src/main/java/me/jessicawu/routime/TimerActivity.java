@@ -50,11 +50,11 @@ public class TimerActivity extends Activity implements View.OnClickListener {
         if(!timerHasStarted) {
             countDownTimer.start();
             timerHasStarted = true;
-            startB.setText("STOP");
+            startB.setText("PAUSE");
         } else {
             countDownTimer.cancel();
             timerHasStarted = false;
-            startB.setText("RESTART");
+            startB.setText("CONTINUE");
         }
     }
 
