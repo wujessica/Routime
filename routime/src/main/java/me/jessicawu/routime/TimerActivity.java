@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 /**
- * Created by jessica and scott on 19/05/14.
+ * Created by jessica and scott  on 19/05/14.
  */
 public class TimerActivity extends Activity implements View.OnClickListener {
     private CountDownTimer countDownTimer;
@@ -48,16 +48,12 @@ public class TimerActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(!timerHasStarted) {
-
             countDownTimer.start();
             timerHasStarted = true;
             startB.setText("PAUSE");
-
         } else {
-
             countDownTimer.cancel();
             countDownTimer = new MyCountDownTimer((long)time, interval);
-
             timerHasStarted = false;
             startB.setText("CONTINUE");
         }
@@ -83,7 +79,7 @@ public class TimerActivity extends Activity implements View.OnClickListener {
         @Override
         public void onTick(long millisUntilFinished){
             //timeLeft.setText("" + millisUntilFinished / 1000 + "." + millisUntilFinished % 1000);
-             time = (double) millisUntilFinished;
+            time = (double) millisUntilFinished;
             DecimalFormat df = new DecimalFormat("0.00");
             timeLeft.setText(df.format(time/1000));
         }
