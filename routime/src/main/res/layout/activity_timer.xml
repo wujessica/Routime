@@ -21,13 +21,14 @@
         android:textSize="50dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/start"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="start"
         android:layout_above="@+id/restart"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onClick"/>
     <Button
         android:id="@+id/restart"
         android:layout_width="fill_parent"
@@ -35,6 +36,8 @@
         android:text="restart"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="restart"
+        />
 
 </RelativeLayout>
