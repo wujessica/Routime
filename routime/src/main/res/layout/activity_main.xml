@@ -11,12 +11,19 @@
 
     <EditText
         android:id="@+id/exercise_name"
+        android:hint = "Enter your exercise name"
+
+        android:layout_above="@+id/timer_amount"
+
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/timer_amount"
+        android:hint="Enter duration of workout in seconds"
         android:inputType="number"
+
+        android:layout_alignParentEnd="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true" />
