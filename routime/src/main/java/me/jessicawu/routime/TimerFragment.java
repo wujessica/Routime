@@ -1,7 +1,7 @@
 package me.jessicawu.routime;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.CountDownTimer;
@@ -21,6 +21,7 @@ public class TimerFragment extends Fragment implements OnClickListener {
     private CountDownTimer countDownTimer;
     private boolean timerHasStarted = false;
     private Button startB;
+    private Button restartB;
     public TextView timeLeft;
     public TextView exerciseNameTV;
     private int startingTime = 0;
@@ -33,8 +34,6 @@ public class TimerFragment extends Fragment implements OnClickListener {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_timer, container,
                 false);
-        Activity activity = getActivity();
-        Intent intent = activity.getIntent();
         startingTime = Integer.parseInt(getArguments().getString("timeString"));
         startTime = startingTime * 1000;
         exerciseNameTV = (TextView) v.findViewById(R.id.current_exercise);
@@ -42,6 +41,10 @@ public class TimerFragment extends Fragment implements OnClickListener {
 
         startB = (Button) v.findViewById(R.id.start);
         startB.setOnClickListener(this);
+
+        restartB = (Button) v.findViewById(R.id.restart);
+        restartB.setOnClickListener(this);
+
         timeLeft = (TextView) v.findViewById(R.id.timer);
         countDownTimer = new MyCountDownTimer(startTime, interval);
         timeLeft.setText(timeLeft.getText() + String.valueOf(startTime / 1000) + ".00");
@@ -72,15 +75,12 @@ public class TimerFragment extends Fragment implements OnClickListener {
                 break;
 
             case R.id.restart:
-                if (!timerHasStarted) {
-                    countDownTimer.cancel();
-                    countDownTimer = new MyCountDownTimer(startTime, interval);
-                    timeLeft.setText(String.valueOf(startTime / 1000) + ".00");
-                } else {
-                    //TODO: crashes when tapped while the timer is running, fix this.
-                }
+                countDownTimer.cancel();
+                countDownTimer = new MyCountDownTimer(startTime, interval);
+                timeLeft.setText(String.valueOf(startTime / 1000) + ".00");
+                startB.setText("START");
+                timerHasStarted = false;
                 break;
-
         }
     }
 
@@ -92,12 +92,13 @@ public class TimerFragment extends Fragment implements OnClickListener {
         @Override
         public void onFinish() {
             timeLeft.setText("Next!");
-            //text.setText("Time's up!");
+//            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//            transaction.remove(getActivity().find).commit();
+
         }
 
         @Override
         public void onTick(long millisUntilFinished){
-            //timeLeft.setText("" + millisUntilFinished / 1000 + "." + millisUntilFinished % 1000);
             time = (double) millisUntilFinished;
             DecimalFormat df = new DecimalFormat("0.00");
             timeLeft.setText(df.format(time/1000));
