@@ -1,20 +1,14 @@
 package me.jessicawu.routime;
 
-import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.app.FragmentManager;
 
 
-public class MainActivity extends ActionBarActivity{
-
-    public final static String TIMER_AMOUNT = "me.jessicawu.routime.TIMER_AMOUNT";
-    public final static String EXERCISE = "me.jessicawu.routime.EXERCISE";
+public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,29 +37,13 @@ public class MainActivity extends ActionBarActivity{
     }
 
     public void goToTimer(View v) {
-        Intent intent = new Intent(this, TimerFragment.class);
         EditText exercise = (EditText) findViewById(R.id.exercise_name);
         EditText timerAmount = (EditText) findViewById(R.id.timer_amount);
         String exerciseName = exercise.getText().toString();
         String message = timerAmount.getText().toString();
-        intent.putExtra(EXERCISE, exerciseName);
-        intent.putExtra(TIMER_AMOUNT, message);
 
-        Bundle bundle = new Bundle();
-        bundle.putString("exerciseName", exerciseName);
-        bundle.putString("timeString", message);
+        TimerManager tm = new TimerManager();
+        tm.startWorkout(this);
 
-        TimerFragment timerFragment = new TimerFragment();
-        timerFragment.setArguments(bundle);
-        // Create new fragment and transaction
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack
-        transaction.replace(android.R.id.content, timerFragment);
-        transaction.addToBackStack(null);
-
-        // Commit the transaction
-        transaction.commit();
     }
 }

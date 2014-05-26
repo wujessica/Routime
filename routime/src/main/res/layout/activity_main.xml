@@ -28,12 +28,12 @@
 
         android:text="add"
         android:onClick="goToTimer"
-        android:layout_above="@+id/start"
+        android:layout_above="@+id/submit"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:id="@+id/start"
+        android:id="@+id/submit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
