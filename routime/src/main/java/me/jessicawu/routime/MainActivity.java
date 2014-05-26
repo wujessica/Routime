@@ -1,6 +1,5 @@
 package me.jessicawu.routime;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,10 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 
-public class MainActivity extends ActionBarActivity{
-
-    public final static String TIMER_AMOUNT = "me.jessicawu.routime.TIMER_AMOUNT";
-    public final static String EXERCISE = "me.jessicawu.routime.EXERCISE";
+public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +37,13 @@ public class MainActivity extends ActionBarActivity{
     }
 
     public void goToTimer(View v) {
-        Intent intent = new Intent(this, TimerActivity.class);
         EditText exercise = (EditText) findViewById(R.id.exercise_name);
         EditText timerAmount = (EditText) findViewById(R.id.timer_amount);
         String exerciseName = exercise.getText().toString();
         String message = timerAmount.getText().toString();
-        intent.putExtra(EXERCISE, exerciseName);
-        intent.putExtra(TIMER_AMOUNT, message);
-        startActivity(intent);
+
+        TimerManager tm = new TimerManager();
+        tm.startWorkout(this);
+
     }
 }

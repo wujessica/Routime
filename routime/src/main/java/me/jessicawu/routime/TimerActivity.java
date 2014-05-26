@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 /**
- * Created by jessica and scott on 19/05/14.
+ * Created by jessica and scott  on 19/05/14.
  */
 public class TimerActivity extends Activity implements View.OnClickListener {
     private CountDownTimer countDownTimer;
@@ -32,32 +32,28 @@ public class TimerActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_timer);
 
         Intent intent = getIntent();
-        startingTime = Integer.parseInt(intent.getStringExtra(MainActivity.TIMER_AMOUNT));
-        startTime = startingTime * 1000;
-        exerciseName = intent.getStringExtra(MainActivity.EXERCISE);
-        exerciseNameTV = (TextView) this.findViewById(R.id.current_exercise);
-        exerciseNameTV.setText(exerciseName);
-
-        startB = (Button) this.findViewById(R.id.start);
-        startB.setOnClickListener(this);
-        timeLeft = (TextView) this.findViewById(R.id.timer);
-        countDownTimer = new MyCountDownTimer(startTime, interval);
-        timeLeft.setText(timeLeft.getText() + String.valueOf(startTime / 1000) + ".00");
+//        startingTime = Integer.parseInt(intent.getStringExtra(MainActivity.TIMER_AMOUNT));
+//        startTime = startingTime * 1000;
+//        exerciseName = intent.getStringExtra(MainActivity.EXERCISE);
+//        exerciseNameTV = (TextView) this.findViewById(R.id.current_exercise);
+//        exerciseNameTV.setText(exerciseName);
+//
+//        startB = (Button) this.findViewById(R.id.start);
+//        startB.setOnClickListener(this);
+//        timeLeft = (TextView) this.findViewById(R.id.timer);
+//        countDownTimer = new MyCountDownTimer(startTime, interval);
+//        timeLeft.setText(timeLeft.getText() + String.valueOf(startTime / 1000) + ".00");
     }
 
     @Override
     public void onClick(View v) {
         if(!timerHasStarted) {
-
             countDownTimer.start();
             timerHasStarted = true;
             startB.setText("PAUSE");
-
         } else {
-
             countDownTimer.cancel();
             countDownTimer = new MyCountDownTimer((long)time, interval);
-
             timerHasStarted = false;
             startB.setText("CONTINUE");
         }
@@ -83,7 +79,7 @@ public class TimerActivity extends Activity implements View.OnClickListener {
         @Override
         public void onTick(long millisUntilFinished){
             //timeLeft.setText("" + millisUntilFinished / 1000 + "." + millisUntilFinished % 1000);
-             time = (double) millisUntilFinished;
+            time = (double) millisUntilFinished;
             DecimalFormat df = new DecimalFormat("0.00");
             timeLeft.setText(df.format(time/1000));
         }
