@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,7 +47,7 @@ public class TimerFragment extends Fragment implements OnClickListener {
         restartB.setOnClickListener(this);
 
         timeLeft = (TextView) v.findViewById(R.id.timer);
-        countDownTimer = new MyCountDownTimer(startTime, interval);
+        countDownTimer = new MyCountDownTimer(startTime, interval, this);
         timeLeft.setText(timeLeft.getText() + String.valueOf(startTime / 1000) + ".00");
 
         return v;
@@ -68,7 +69,7 @@ public class TimerFragment extends Fragment implements OnClickListener {
                     startB.setText("PAUSE");
                 } else {
                     countDownTimer.cancel();
-                    countDownTimer = new MyCountDownTimer((long)time, interval);
+                    countDownTimer = new MyCountDownTimer((long)time, interval, this);
                     timerHasStarted = false;
                     startB.setText("CONTINUE");
                 }
@@ -76,7 +77,7 @@ public class TimerFragment extends Fragment implements OnClickListener {
 
             case R.id.restart:
                 countDownTimer.cancel();
-                countDownTimer = new MyCountDownTimer(startTime, interval);
+                countDownTimer = new MyCountDownTimer(startTime, interval, this);
                 timeLeft.setText(String.valueOf(startTime / 1000) + ".00");
                 startB.setText("START");
                 timerHasStarted = false;
@@ -85,15 +86,24 @@ public class TimerFragment extends Fragment implements OnClickListener {
     }
 
     public class MyCountDownTimer extends CountDownTimer {
-        public MyCountDownTimer (long startTime, long interval) {
+        private Fragment fragment;
+        public MyCountDownTimer (long startTime, long interval, Fragment f) {
             super(startTime, interval);
+            fragment = f;
         }
 
         @Override
         public void onFinish() {
-            timeLeft.setText("Next!");
-//            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//            transaction.remove(getActivity().find).commit();
+            //timeLeft.setText("Next!");
+            //destroy current fragment
+            FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
+            ft.remove(fragment);
+
+            //populate the next fragment
+            TimerManager tm = new TimerManager();
+            tm.nextExercise(getActivity());
+
+            ft.commit();
 
         }
 
