@@ -35,10 +35,10 @@ public class TimerFragment extends Fragment implements OnClickListener {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_timer, container,
                 false);
-        startingTime = Integer.parseInt(getArguments().getString("timeString"));
+        startingTime = Integer.parseInt(getArguments().getString("TIME_STRING"));
         startTime = startingTime * 1000;
         exerciseNameTV = (TextView) v.findViewById(R.id.current_exercise);
-        exerciseNameTV.setText(getArguments().getString("exerciseName"));
+        exerciseNameTV.setText(getArguments().getString("EXERCISE_NAME"));
 
         startB = (Button) v.findViewById(R.id.start);
         startB.setOnClickListener(this);
@@ -66,12 +66,12 @@ public class TimerFragment extends Fragment implements OnClickListener {
                 if(!timerHasStarted) {
                     countDownTimer.start();
                     timerHasStarted = true;
-                    startB.setText("PAUSE");
+                    startB.setText(R.string.button_pause);
                 } else {
                     countDownTimer.cancel();
                     countDownTimer = new MyCountDownTimer((long)time, interval, this);
                     timerHasStarted = false;
-                    startB.setText("CONTINUE");
+                    startB.setText(R.string.button_continue);
                 }
                 break;
 
@@ -79,7 +79,7 @@ public class TimerFragment extends Fragment implements OnClickListener {
                 countDownTimer.cancel();
                 countDownTimer = new MyCountDownTimer(startTime, interval, this);
                 timeLeft.setText(String.valueOf(startTime / 1000) + ".00");
-                startB.setText("START");
+                startB.setText(R.string.button_restart);
                 timerHasStarted = false;
                 break;
         }
