@@ -11,41 +11,37 @@
 
     <EditText
         android:id="@+id/exercise_name"
-        android:hint = "Enter your exercise name"
-
-        android:layout_above="@+id/timer_amount"
-
+        android:hint="@string/hint_duration_input"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/timer_amount" />
 
     <EditText
         android:id="@+id/timer_amount"
-        android:hint="Enter duration of workout in seconds"
+        android:hint="@string/hint_duration_input"
         android:inputType="number"
-
-        android:layout_alignParentEnd="true"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true" />
-
-    <Button
-        android:id="@+id/add"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-
-        android:text="add"
-        android:onClick="goToTimer"
-        android:layout_above="@+id/submit"
-        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/add"
+        android:text="@string/button_add"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/submit"
+        android:onClick="goToTimer" />
+
+    <Button
+        android:id="@+id/submit"
+        android:text="@string/button_submit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:text="submit"
-        android:onClick="goToTimer"/>
+        android:layout_alignParentBottom="true"
+        android:onClick="goToTimer" />
 
 </RelativeLayout>

@@ -2,7 +2,15 @@
 <resources>
 
     <string name="app_name">Routime</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="hint_exercise_input">Enter your exercise name</string>
+    <string name="hint_duration_input">Enter duration of exercise in seconds</string>
+
+    <string name="button_submit">Submit</string>
+    <string name="button_add">Add</string>
+    <string name="button_pause">Pause</string>
+    <string name="button_continue">Continue</string>
+    <string name="button_restart">Restart</string>
 
 </resources>
