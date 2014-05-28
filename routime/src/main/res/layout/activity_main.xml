@@ -9,16 +9,17 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="New Routine"
-        android:id="@+id/button"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/new_routine"
+        android:layout_gravity="center_horizontal"
+        android:onClick="goToAddWorkout"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Load Routine"
-        android:id="@+id/button2"
+        android:id="@+id/load_routine"
         android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_below="@+id/new_routine"
+        android:layout_alignLeft="@+id/new_routine"
+        android:layout_alignStart="@+id/new_routine" />
 </RelativeLayout>

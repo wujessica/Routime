@@ -32,9 +32,9 @@ public class TimerActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_timer);
 
         Intent intent = getIntent();
-        startingTime = Integer.parseInt(intent.getStringExtra(MainActivity.TIMER_AMOUNT));
+        startingTime = Integer.parseInt(intent.getStringExtra(AddWorkoutActivity.TIMER_AMOUNT));
         startTime = startingTime * 1000;
-        exerciseName = intent.getStringExtra(MainActivity.EXERCISE);
+        exerciseName = intent.getStringExtra(AddWorkoutActivity.EXERCISE);
         exerciseNameTV = (TextView) this.findViewById(R.id.current_exercise);
         exerciseNameTV.setText(exerciseName);
 
