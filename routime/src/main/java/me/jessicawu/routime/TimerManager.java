@@ -16,10 +16,11 @@ public class TimerManager {
                            {"sit-ups", "5"}};
     private static int exerciseIndex = 0;
 
+
     void startWorkout (Activity a) {
             Bundle bundle = new Bundle();
-            bundle.putString("exerciseName", workout[0][0]);
-            bundle.putString("timeString", workout[0][1]);
+            bundle.putString("EXERCISE_NAME", workout[0][0]);
+            bundle.putString("TIME_STRING", workout[0][1]);
             //Log.d("exercises", workout[i][0]);
             TimerFragment timerFragment = new TimerFragment();
             timerFragment.setArguments(bundle);
@@ -37,8 +38,8 @@ public class TimerManager {
     void nextExercise (Activity a) {
         if (exerciseIndex < workout.length) {
             Bundle bundle = new Bundle();
-            bundle.putString("exerciseName", workout[exerciseIndex][0]);
-            bundle.putString("timeString", workout[exerciseIndex][1]);
+            bundle.putString("EXERCISE_NAME", workout[exerciseIndex][0]);
+            bundle.putString("TIME_STRING", workout[exerciseIndex][1]);
             //Log.d("exercises", workout[i][0]);
             TimerFragment timerFragment = new TimerFragment();
             timerFragment.setArguments(bundle);
