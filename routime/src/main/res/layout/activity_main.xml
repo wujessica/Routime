@@ -26,22 +26,22 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:id="@+id/add"
-        android:text="@string/button_add"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/submit"
-        android:onClick="goToTimer" />
+        android:text="New Routine"
+        android:id="@+id/new_routine"
+        android:layout_gravity="center_horizontal"
+        android:onClick="goToAddWorkout"/>
 
     <Button
-        android:id="@+id/submit"
-        android:text="@string/button_submit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:onClick="goToTimer" />
-
+        android:text="Load Routine"
+        android:id="@+id/load_routine"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/new_routine"
+        android:layout_alignLeft="@+id/new_routine"
+        android:layout_alignStart="@+id/new_routine" />
 </RelativeLayout>
+
+

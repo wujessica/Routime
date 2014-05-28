@@ -32,17 +32,17 @@ public class TimerActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_timer);
 
         Intent intent = getIntent();
-//        startingTime = Integer.parseInt(intent.getStringExtra(MainActivity.TIMER_AMOUNT));
-//        startTime = startingTime * 1000;
-//        exerciseName = intent.getStringExtra(MainActivity.EXERCISE);
-//        exerciseNameTV = (TextView) this.findViewById(R.id.current_exercise);
-//        exerciseNameTV.setText(exerciseName);
-//
-//        startB = (Button) this.findViewById(R.id.start);
-//        startB.setOnClickListener(this);
-//        timeLeft = (TextView) this.findViewById(R.id.timer);
-//        countDownTimer = new MyCountDownTimer(startTime, interval);
-//        timeLeft.setText(timeLeft.getText() + String.valueOf(startTime / 1000) + ".00");
+        startingTime = Integer.parseInt(intent.getStringExtra(AddWorkoutActivity.TIMER_AMOUNT));
+        startTime = startingTime * 1000;
+        exerciseName = intent.getStringExtra(AddWorkoutActivity.EXERCISE);
+        exerciseNameTV = (TextView) this.findViewById(R.id.current_exercise);
+        exerciseNameTV.setText(exerciseName);
+
+        startB = (Button) this.findViewById(R.id.start);
+        startB.setOnClickListener(this);
+        timeLeft = (TextView) this.findViewById(R.id.timer);
+        countDownTimer = new MyCountDownTimer(startTime, interval);
+        timeLeft.setText(timeLeft.getText() + String.valueOf(startTime / 1000) + ".00");
     }
 
     @Override
