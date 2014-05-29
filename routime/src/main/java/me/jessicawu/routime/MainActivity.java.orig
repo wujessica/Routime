@@ -1,8 +1,11 @@
 package me.jessicawu.routime;
 
+<<<<<<< HEAD
+=======
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+>>>>>>> development-menu
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,8 +16,12 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
+<<<<<<< HEAD
+public class MainActivity extends ActionBarActivity {
+=======
     private Button newWorkout;
     private Button loadWorkout;
+>>>>>>> development-menu
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,18 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
 
 
+<<<<<<< HEAD
+    public void goToTimer(View v) {
+        EditText exercise = (EditText) findViewById(R.id.exercise_name);
+        EditText timerAmount = (EditText) findViewById(R.id.timer_amount);
+        String exerciseName = exercise.getText().toString();
+        String message = timerAmount.getText().toString();
+
+        TimerManager tm = new TimerManager();
+        tm.startWorkout(this);
+
+=======
+>>>>>>> development-menu
     }
 
 }
