@@ -27,13 +27,7 @@ public class ListExcercisesActivity extends Activity {
 
         // Defined Array values to show in ListView
         String[] values = new String[] { "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
+
         };
 
         // Define a new Adapter
@@ -57,12 +51,18 @@ public class ListExcercisesActivity extends Activity {
                                     int position, long id) {
 
                 // ListView Clicked item index
-                int itemPosition     = position;
+                int itemPosition  = position;
 
                 // ListView Clicked item value
                 String  itemValue    = (String) listView.getItemAtPosition(position);
 
-                
+
+
+            }
+
+            public void addToList() {
+
+
 
             }
 
