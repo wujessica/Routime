@@ -15,6 +15,10 @@ public class AddWorkoutActivity extends ActionBarActivity{
     public final static String TIMER_AMOUNT = "me.jessicawu.routime.TIMER_AMOUNT";
     public final static String EXERCISE = "me.jessicawu.routime.EXERCISE";
 
+    public final static String LIST_TIMER_AMOUNT = "me.jessicawu.routime.TIMER_AMOUNT";
+    public final static String LIST_EXERCISE = "me.jessicawu.routime.EXERCISE";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +45,29 @@ public class AddWorkoutActivity extends ActionBarActivity{
         return super.onOptionsItemSelected(item);
     }
 
+    public void goToList(View view) {
+
+        Intent intent = new Intent(this, ListExcercisesActivity.class);
+
+        EditText exercise = (EditText) findViewById(R.id.exercise_name);
+        EditText timerAmount = (EditText) findViewById(R.id.timer_amount);
+
+        String exerciseName = exercise.getText().toString();
+        String message = timerAmount.getText().toString();
+
+        intent.putExtra(LIST_EXERCISE, exerciseName);
+        intent.putExtra(LIST_TIMER_AMOUNT, message);
+
+        startActivity(intent);
+    }
 
 
     public void goToTimer(View v) {
         Intent intent = new Intent(this, TimerFragment.class);
+
         EditText exercise = (EditText) findViewById(R.id.exercise_name);
         EditText timerAmount = (EditText) findViewById(R.id.timer_amount);
+
         String exerciseName = exercise.getText().toString();
         String message = timerAmount.getText().toString();
         intent.putExtra(EXERCISE, exerciseName);

@@ -1,6 +1,7 @@
 package me.jessicawu.routime;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,8 +26,14 @@ public class ListExcercisesActivity extends Activity {
         // Get ListView object from xml
         listView = (ListView) findViewById(R.id.routineList);
 
+        Intent intent = getIntent();
+
+        String exerciseName = intent.getStringExtra(AddWorkoutActivity.LIST_EXERCISE);
+        String message = intent.getStringExtra(AddWorkoutActivity.LIST_TIMER_AMOUNT);
+
+
         // Defined Array values to show in ListView
-        String[] values = new String[] { "Android List View",
+        String[] values = new String[] { "Android List View"
 
         };
 
@@ -61,6 +68,7 @@ public class ListExcercisesActivity extends Activity {
             }
 
             public void addToList() {
+
 
 
 
