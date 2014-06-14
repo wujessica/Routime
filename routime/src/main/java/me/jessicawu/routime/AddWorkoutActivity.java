@@ -63,6 +63,7 @@ public class AddWorkoutActivity extends ActionBarActivity{
 
 
     public void goToTimer(View v) {
+
         Intent intent = new Intent(this, TimerFragment.class);
 
         EditText exercise = (EditText) findViewById(R.id.exercise_name);
@@ -74,8 +75,8 @@ public class AddWorkoutActivity extends ActionBarActivity{
         intent.putExtra(TIMER_AMOUNT, message);
 
         Bundle bundle = new Bundle();
-        bundle.putString("exerciseName", exerciseName);
-        bundle.putString("timeString", message);
+        bundle.putString("EXERCISE_NAME", exerciseName);
+        bundle.putString("TIME_STRING", message);
 
         TimerFragment timerFragment = new TimerFragment();
         timerFragment.setArguments(bundle);
