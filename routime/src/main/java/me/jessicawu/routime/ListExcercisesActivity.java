@@ -17,6 +17,11 @@ public class ListExcercisesActivity extends Activity {
 
 
     ListView listView ;
+    ArrayAdapter<String> adapter;
+    Intent intent = getIntent();
+
+    String exerciseName = intent.getStringExtra(AddWorkoutActivity.LIST_EXERCISE);
+    String time = intent.getStringExtra(AddWorkoutActivity.LIST_TIMER_AMOUNT);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +31,12 @@ public class ListExcercisesActivity extends Activity {
         // Get ListView object from xml
         listView = (ListView) findViewById(R.id.routineList);
 
-        Intent intent = getIntent();
 
-        String exerciseName = intent.getStringExtra(AddWorkoutActivity.LIST_EXERCISE);
-        String message = intent.getStringExtra(AddWorkoutActivity.LIST_TIMER_AMOUNT);
+
 
 
         // Defined Array values to show in ListView
-        String[] values = new String[] { "Android List View"
-
+        String[] values = new String[] {
         };
 
         // Define a new Adapter
@@ -43,12 +45,14 @@ public class ListExcercisesActivity extends Activity {
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                 adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
 
 
         // Assign adapter to ListView
         listView.setAdapter(adapter);
+
+        adapter.addAll(exerciseName, time);
 
         // ListView Item Click Listener
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,15 +71,14 @@ public class ListExcercisesActivity extends Activity {
 
             }
 
-            public void addToList() {
 
-
-
-
-            }
 
         });
     }
+
+
+
+
 
 
 
