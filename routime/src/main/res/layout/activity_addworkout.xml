@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
 
         android:text="add"
+        android:onClick="goToList"
 
         android:layout_above="@+id/start"
         android:layout_alignParentRight="true"
