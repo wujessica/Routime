@@ -32,15 +32,13 @@
 
     <Button
         android:id="@+id/add"
+        android:text="@string/button_add"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-
-        android:text="add"
-        android:onClick="goToList"
-
         android:layout_above="@+id/start"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="goToList" />
 
     <Button
         android:id="@+id/start"
@@ -48,8 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="submit"
-        android:onClick="goToTimer"/>
+        android:text="@string/button_submit" />
 
     <ListView
         android:layout_width="wrap_content"

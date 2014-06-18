@@ -4,6 +4,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,7 +48,7 @@ public class AddWorkoutActivity extends ActionBarActivity{
 
     public void goToList(View view) {
 
-        Intent intent = new Intent(this, ListExcercisesActivity.class);
+        Intent intent = new Intent(this, ListExercisesActivity.class);
 
         EditText exercise = (EditText) findViewById(R.id.exercise_name);
         EditText timerAmount = (EditText) findViewById(R.id.timer_amount);
