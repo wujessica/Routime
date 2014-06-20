@@ -24,7 +24,7 @@ public class ListExercisesActivity extends Activity {
 
     private boolean first = true;
 
-    public void updateList() {
+    public void updateList(View view) {
         Intent intent = getIntent();
 
         String exercise = intent.getStringExtra(AddWorkoutActivity.LIST_EXERCISE);
@@ -68,6 +68,6 @@ public class ListExercisesActivity extends Activity {
             first = false;
         }
 
-        updateList();
+        updateList(findViewById(R.id.routineList));
     }
 }
