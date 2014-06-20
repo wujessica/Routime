@@ -46,7 +46,7 @@ public class AddWorkoutActivity extends ActionBarActivity{
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToList(View view) {
+    public void updateList(View view) {
 
         Intent intent = new Intent(this, ListExercisesActivity.class);
 
