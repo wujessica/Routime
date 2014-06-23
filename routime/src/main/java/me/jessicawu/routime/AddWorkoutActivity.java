@@ -4,7 +4,6 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,7 +22,7 @@ public class AddWorkoutActivity extends ActionBarActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addworkout);
+        setContentView(R.layout.fragment_addworkout);
     }
 
 
@@ -56,10 +55,20 @@ public class AddWorkoutActivity extends ActionBarActivity{
         String exerciseName = exercise.getText().toString();
         String message = timerAmount.getText().toString();
 
-        intent.putExtra(LIST_EXERCISE, exerciseName);
-        intent.putExtra(LIST_TIMER_AMOUNT, message);
+        Bundle bundle = new Bundle();
+        bundle.putString("LIST_EXERCISE", exerciseName);
+        bundle.putString("LIST_TIMER_AMOUNT", message);
 
-        startActivity(intent);
+        ListExercisesFragment listexercisesFragment = new ListExercisesFragment();
+        listexercisesFragment.setArguments(bundle);
+
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(android.R.id.content, listexercisesFragment);
+        transaction.addToBackStack(null);
+
+        transaction.commit();
+
+
     }
 
 
