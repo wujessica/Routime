@@ -3,9 +3,6 @@ package me.jessicawu.routime;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
 
 /**
  * Created by jessica on 24/05/14.

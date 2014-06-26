@@ -1,34 +1,61 @@
 package me.jessicawu.routime;
 
 import android.app.Activity;
-import android.content.Intent;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 /**
- * Created by scottso on 2014-05-29.
- */
-public class ListExercisesActivity extends Activity {
+* Created by scottso on 2014-05-29.
+*/
+public class ListExercisesActivity extends Activity implements AddWorkoutFragment.OnDataPass{
+    private ListView  listView;
+    private ArrayList<String> workout;
+    private ArrayAdapter<String> adapter;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_listexercises);
 
-    ListView  listView;
+        Button button = (Button) findViewById(R.id.add);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onAdd();
+            }
+        });
 
-    ArrayList<String> workout;
+        listView = (ListView) findViewById(R.id.exercise_list);
+        workout = new ArrayList<String>();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, workout);
 
-    ArrayAdapter<String> adapter;
+        // ListView Item Click Listener
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-    private boolean first = true;
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // ListView Clicked item index
+                int itemPosition  = position;
 
-    public void updateList(View view) {
-        Intent intent = getIntent();
+                // ListView Clicked item value
+                String  itemValue    = (String) listView.getItemAtPosition(position);
 
-        String exercise = intent.getStringExtra(AddWorkoutActivity.LIST_EXERCISE);
-        String time = intent.getStringExtra(AddWorkoutActivity.LIST_TIMER_AMOUNT);
+                Log.d("log", itemPosition + " " + itemValue);
+            }
+        });
+    }
 
+    @Override
+    public void onDataPass(String exercise, String time) {
         workout.add(exercise);
         workout.add(time);
 
@@ -36,37 +63,13 @@ public class ListExercisesActivity extends Activity {
 
         // Assign adapter to ListView
         listView.setAdapter(adapter);
-
-        // ListView Item Click Listener
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view,
-//                                    int position, long id) {
-//
-//                // ListView Clicked item index
-//                int itemPosition  = position;
-//
-//                // ListView Clicked item value
-//                String  itemValue    = (String) listView.getItemAtPosition(position);
-//            }
-//        });
-
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_addworkout);
+    public void onAdd() {
+        AddWorkoutFragment f = new AddWorkoutFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-        if (first) {
-            // Get ListView object from xml
-            listView = (ListView) findViewById(R.id.routineList);
-            workout = new ArrayList<String>();
-            adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, workout);
-            first = false;
-        }
-
-        updateList(findViewById(R.id.routineList));
+        transaction.replace(android.R.id.content, f);
+        transaction.addToBackStack(null).commit();
     }
 }
