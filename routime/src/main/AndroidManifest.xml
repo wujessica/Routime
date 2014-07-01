@@ -17,20 +17,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="me.jessicawu.routime.AddWorkoutActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-<<<<<<< HEAD
-            android:name="me.jessicawu.routime.ListExcercisesActivity"
-            android:label="@string/app_name" >
-
-=======
             android:name="me.jessicawu.routime.ListExercisesActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -38,7 +24,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
->>>>>>> Displays one exercise and time inputted in the ListView.
         </activity>
     </application>
 
