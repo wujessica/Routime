@@ -25,6 +25,5 @@
         android:layout_below="@+id/new_routine"
         android:layout_alignLeft="@+id/new_routine"
         android:layout_alignStart="@+id/new_routine" />
+
 </RelativeLayout>
-
-
