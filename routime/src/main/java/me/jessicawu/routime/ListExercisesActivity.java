@@ -1,9 +1,8 @@
 package me.jessicawu.routime;
 
 import android.app.Activity;
-import android.app.FragmentTransaction;
+import android.app.DialogFragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 /**
 * Created by scottso on 2014-05-29.
 */
-public class ListExercisesActivity extends Activity implements AddWorkoutFragment.OnDataPass{
+public class ListExercisesActivity extends Activity implements AddWorkoutDialog.OnDataPass{
     private ListView  listView;
     private ArrayList<String> workout;
     private ArrayAdapter<String> adapter;
@@ -44,12 +43,10 @@ public class ListExercisesActivity extends Activity implements AddWorkoutFragmen
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // ListView Clicked item index
-                int itemPosition  = position;
+                int itemPosition = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView.getItemAtPosition(position);
-
-                Log.d("log", itemPosition + " " + itemValue);
+                String itemValue = (String) listView.getItemAtPosition(position);
             }
         });
     }
@@ -66,10 +63,7 @@ public class ListExercisesActivity extends Activity implements AddWorkoutFragmen
     }
 
     public void onAdd() {
-        AddWorkoutFragment f = new AddWorkoutFragment();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-        transaction.replace(android.R.id.content, f);
-        transaction.addToBackStack(null).commit();
+        DialogFragment newFragment = new AddWorkoutDialog();
+        newFragment.show(getFragmentManager(), "AddWorkout");
     }
 }
