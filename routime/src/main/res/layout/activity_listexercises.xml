@@ -10,7 +10,6 @@
     tools:context="me.jessicawu.routime.ListExercisesActivity">
 
     <ListView
-        android:background="#354353"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/exercise_list"

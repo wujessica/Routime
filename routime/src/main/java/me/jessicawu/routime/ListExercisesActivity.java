@@ -3,11 +3,13 @@ package me.jessicawu.routime;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,8 +18,9 @@ import java.util.ArrayList;
 */
 public class ListExercisesActivity extends Activity implements AddWorkoutDialog.OnDataPass{
     private ListView  listView;
-    private ArrayList<String> workout;
-    private ArrayAdapter<String> adapter;
+    private ArrayList<ListExercisesItem> workout;
+    private ListExercisesViewAdapter adapter;
+    //private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +36,10 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
         });
 
         listView = (ListView) findViewById(R.id.exercise_list);
-        workout = new ArrayList<String>();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, workout);
+        workout = new ArrayList<ListExercisesItem>();
+        //workout = new ArrayList<String>();
+        adapter = new ListExercisesViewAdapter(this, R.layout.list_exercises_item, workout);
+        //adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, workout);
 
         // ListView Item Click Listener
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -53,8 +58,8 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
 
     @Override
     public void onDataPass(String exercise, String time) {
-        workout.add(exercise);
-        workout.add(time);
+        ListExercisesItem item = new ListExercisesItem(exercise, time);
+        workout.add(item);
 
         adapter.notifyDataSetChanged();
 
@@ -66,4 +71,5 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
         DialogFragment newFragment = new AddWorkoutDialog();
         newFragment.show(getFragmentManager(), "AddWorkout");
     }
+
 }
