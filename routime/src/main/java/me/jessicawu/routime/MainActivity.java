@@ -18,8 +18,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        CalligraphyConfig.initDefault("fonts/SourceSansPro-Semibold.ttf", R.attr.fontPath);
+        CalligraphyConfig.initDefault("fonts/SourceSansPro-Black.ttf", R.attr.fontPath);
         setContentView(R.layout.activity_main);
 
         newWorkout = (Button) this.findViewById(R.id.new_routine);
