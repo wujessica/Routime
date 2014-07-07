@@ -51,7 +51,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
 
             case R.id.load_routine:
-                goToMyRoutines(v);
+                //goToMyRoutines(v);
                 break;
         }
 
@@ -62,8 +62,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         startActivity(intent);
     }
 
-    public void goToMyRoutines(View v) {
-        Intent intent = new Intent(this, MyRoutinesActivity.class);
-        startActivity(intent);
-    }
+//    public void goToMyRoutines(View v) {
+//        Intent intent = new Intent(this, MyRoutinesActivity.class);
+//        startActivity(intent);
+//    }
 }

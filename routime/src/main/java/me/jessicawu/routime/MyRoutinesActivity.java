@@ -47,14 +47,19 @@ public class MyRoutinesActivity extends Activity {
 
     public void loadRoutines() {
         FileManager fm = new FileManager();
-        String exercise = "";
-        String duration = "";
+        String routine = "";
         int totalDuration = 0;
 
         for (int i = 0; i < fm.routineCount; i++) {
             //TODO: think of a better way than just calculating etc on load
             ArrayList<ListExercisesItem> currentRoutine =  fm.findAndReadFile(fm.fileNames.get(i), this);
-            ListWorkoutItem item = new ListWorkoutItem(exercise, duration);
+
+            for(int k = 0; k < currentRoutine.size(); k++) {
+                totalDuration += Integer.parseInt(currentRoutine.get(i).getDuration());
+            }
+            routine = fm.fileNames.get(i);
+
+            ListWorkoutItem item = new ListWorkoutItem(routine, String.valueOf(totalDuration));
             myRoutines.add(item);
         }
 
