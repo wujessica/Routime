@@ -11,11 +11,18 @@
     android:background="#22A7F0"
     >
 
+    <EditText
+        android:id="@+id/routine_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_routine_name"/>
+
     <ListView
         android:background="#22A7F0"
+        android:id="@+id/exercise_list"
+        android:layout_below="@+id/routine_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/exercise_list"
         android:layout_above="@+id/add" />
 
     <Button

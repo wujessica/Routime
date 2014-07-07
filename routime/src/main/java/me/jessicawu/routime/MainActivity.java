@@ -31,6 +31,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
@@ -42,13 +47,11 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.new_routine:
-
                 goToAddWorkout(v);
-
                 break;
 
             case R.id.load_routine:
-
+                goToMyRoutines(v);
                 break;
         }
 
@@ -59,8 +62,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         startActivity(intent);
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
+    public void goToMyRoutines(View v) {
+        Intent intent = new Intent(this, MyRoutinesActivity.class);
+        startActivity(intent);
     }
 }

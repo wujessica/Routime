@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -24,7 +25,6 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
     private ListView  listView;
     private ArrayList<ListExercisesItem> workout;
     private ListExercisesViewAdapter adapter;
-    //private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +32,24 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
         CalligraphyConfig.initDefault("fonts/SourceSansPro-Black.ttf", R.attr.fontPath);
         setContentView(R.layout.activity_listexercises);
 
-        Button button = (Button) findViewById(R.id.add);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button add = (Button) findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onAdd();
             }
         });
 
-
+        Button submit = (Button) findViewById(R.id.submit);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSubmit();
+            }
+        });
 
         listView = (ListView) findViewById(R.id.exercise_list);
         workout = new ArrayList<ListExercisesItem>();
-        //workout = new ArrayList<String>();
         adapter = new ListExercisesViewAdapter(this, R.layout.list_exercises_item, workout);
         //adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, workout);
 
@@ -81,5 +86,16 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
 
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(new CalligraphyContextWrapper(newBase));
+    }
+
+    public void onSubmit() {
+        EditText routineNameET = (EditText) findViewById(R.id.routine_name);
+        String routineName = routineNameET.getText().toString();
+
+        //Save everything (name and workout)
+//        FileManager fm = new FileManager();
+//        fm.saveFile(routineName, workout, this);
+
+        finish();
     }
 }
