@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#FFFFFF"
+    android:background="#22A7F0"
  >
 
     <TextView
@@ -25,21 +25,26 @@
     <Button
         android:id="@+id/start"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="start"
+        android:layout_height="160px"
+        android:text="START"
+        android:textSize="14pt"
         android:layout_above="@id/restart"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#F9690E"
+        />
     <Button
         android:id="@+id/restart"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="restart"
+        android:layout_height="160px"
+        android:text="RESTART"
+        android:textSize="14pt"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:onClick="onClick"
+        android:background="#F22613"
         />
 
 

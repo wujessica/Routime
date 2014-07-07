@@ -1,11 +1,15 @@
 package me.jessicawu.routime;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -14,7 +18,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault("fonts/SourceSansPro-Black.ttf", R.attr.fontPath);
         setContentView(R.layout.activity_main);
 
         newWorkout = (Button) this.findViewById(R.id.new_routine);
@@ -47,8 +53,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
 
     }
+
     public void goToAddWorkout(View v) {
         Intent intent = new Intent(this, ListExercisesActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
     }
 }

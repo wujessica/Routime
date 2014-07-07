@@ -2,6 +2,7 @@ package me.jessicawu.routime;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -12,6 +13,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
 * Created by scottso on 2014-05-29.
@@ -25,6 +29,7 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault("fonts/SourceSansPro-Black.ttf", R.attr.fontPath);
         setContentView(R.layout.activity_listexercises);
 
         Button button = (Button) findViewById(R.id.add);
@@ -34,6 +39,8 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
                 onAdd();
             }
         });
+
+
 
         listView = (ListView) findViewById(R.id.exercise_list);
         workout = new ArrayList<ListExercisesItem>();
@@ -72,4 +79,7 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
         newFragment.show(getFragmentManager(), "AddWorkout");
     }
 
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
+    }
 }

@@ -7,13 +7,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="me.jessicawu.routime.MainActivity"
-    android:background="#2C3E50"
+    android:background="#22A7F0"
     >
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="150px"
-        android:text="New Routine"
+        android:layout_height="240px"
+        android:text="NEW ROUTIME"
+        android:textColor="#fff"
+        android:textSize="19pt"
         android:id="@+id/new_routine"
         android:layout_gravity="center_horizontal"
         android:onClick="goToAddWorkout"
@@ -21,8 +23,10 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="150px"
-        android:text="Load Routine"
+        android:layout_height="240px"
+        android:text="LOAD ROUTIME"
+        android:textColor="#fff"
+        android:textSize="19pt"
         android:id="@+id/load_routine"
         android:layout_gravity="center_horizontal"
         android:layout_below="@+id/new_routine"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/scottso/Routime/routime/build/intermediates/pre-dexed/debug/calligraphy-1.0.0-84d6709eed7e2ba78bf9611e5386e435e41dfc20.jar"
+        jar="/Users/scottso/.gradle/caches/modules-2/files-2.1/uk.co.chrisjenx/calligraphy/1.0.0/dbc9b5d6f818720e04200d8a9b3c573855d0d0/calligraphy-1.0.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="00dbc9b5d6f818720e04200d8a9b3c573855d0d0"/>
+
+</pre-dex-items>
