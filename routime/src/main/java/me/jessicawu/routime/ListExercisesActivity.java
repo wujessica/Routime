@@ -2,6 +2,7 @@ package me.jessicawu.routime;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
 * Created by scottso on 2014-05-29.
@@ -70,5 +72,9 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
     public void onAdd() {
         DialogFragment newFragment = new AddWorkoutDialog();
         newFragment.show(getFragmentManager(), "AddWorkout");
+    }
+
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
     }
 }
