@@ -25,7 +25,7 @@
     <Button
         android:id="@+id/start"
         android:layout_width="fill_parent"
-        android:layout_height="140px"
+        android:layout_height="160px"
         android:text="START"
         android:textSize="14pt"
         android:layout_above="@id/restart"
@@ -37,7 +37,7 @@
     <Button
         android:id="@+id/restart"
         android:layout_width="fill_parent"
-        android:layout_height="140px"
+        android:layout_height="160px"
         android:text="RESTART"
         android:textSize="14pt"
         android:layout_alignParentLeft="true"

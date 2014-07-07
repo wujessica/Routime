@@ -22,7 +22,7 @@
         android:id="@+id/add"
         android:text="@string/button_add"
         android:layout_width="fill_parent"
-        android:layout_height="140px"
+        android:layout_height="180px"
         android:layout_above="@+id/submit"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -36,7 +36,7 @@
     <Button
         android:id="@+id/submit"
         android:layout_width="fill_parent"
-        android:layout_height="140px"
+        android:layout_height="180px"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:text="@string/button_submit"
