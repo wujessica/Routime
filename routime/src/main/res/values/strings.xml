@@ -7,11 +7,11 @@
     <string name="hint_exercise_input">Enter your exercise name</string>
     <string name="hint_duration_input">Enter duration of exercise in seconds</string>
 
-    <string name="button_submit">Submit</string>
-    <string name="button_add">Add</string>
-    <string name="button_pause">Pause</string>
+    <string name="button_submit">SUBMIT</string>
+    <string name="button_add">ADD</string>
+    <string name="button_pause">PAUSE</string>
     <string name="button_continue">Continue</string>
-    <string name="button_restart">Restart</string>
+    <string name="button_restart">RESTART</string>
     <string name="button_cancel">Cancel</string>
 
 </resources>

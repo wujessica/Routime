@@ -7,10 +7,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:screenOrientation="portrait"
-    tools:context="me.jessicawu.routime.ListExercisesActivity">
+    tools:context="me.jessicawu.routime.ListExercisesActivity"
+    android:background="#22A7F0"
+    >
 
     <ListView
-        android:background="#354353"
+        android:background="#22A7F0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/exercise_list"
@@ -20,17 +22,27 @@
         android:id="@+id/add"
         android:text="@string/button_add"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="140px"
         android:layout_above="@+id/submit"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textSize="14pt"
+        android:textColor="#fff"
+        android:background="#F9690E"
+
+
+        />
 
     <Button
         android:id="@+id/submit"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="140px"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="@string/button_submit" />
+        android:text="@string/button_submit"
+        android:textSize="14pt"
+        android:textColor="#fff"
+        android:background="#F22613"
+        />
 
 </RelativeLayout>

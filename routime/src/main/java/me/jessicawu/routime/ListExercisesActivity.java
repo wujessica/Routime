@@ -11,6 +11,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
 /**
 * Created by scottso on 2014-05-29.
 */
@@ -22,6 +24,7 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault("fonts/SourceSansPro-Black.ttf", R.attr.fontPath);
         setContentView(R.layout.activity_listexercises);
 
         Button button = (Button) findViewById(R.id.add);
@@ -31,6 +34,8 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
                 onAdd();
             }
         });
+
+
 
         listView = (ListView) findViewById(R.id.exercise_list);
         workout = new ArrayList<String>();
