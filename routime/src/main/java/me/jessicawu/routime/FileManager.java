@@ -1,6 +1,8 @@
 package me.jessicawu.routime;
 
 import android.content.Context;
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
  */
 public class FileManager {
     public static int routineCount = 0;
-    public static ArrayList<String> fileNames;
+    public static ArrayList<String> fileNames = new ArrayList<String>();
 
     public void saveFile(String workoutName, ArrayList<ListExercisesItem> workout, Context context) {
         try {
@@ -30,6 +32,7 @@ public class FileManager {
         }
         routineCount++;
         fileNames.add(workoutName);
+        Log.d("test","save called!" +  workoutName + " " + routineCount);
     }
 
     public ArrayList<ListExercisesItem> findAndReadFile(String workoutName, Context context) {
@@ -71,6 +74,7 @@ public class FileManager {
         context.deleteFile(workoutName);
         routineCount--;
         fileNames.remove(workoutName);
+        Log.d("test", "delete called" + workoutName);
     }
 
     //TODO: make routines editable
