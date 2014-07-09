@@ -3,6 +3,7 @@ package me.jessicawu.routime;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -51,28 +52,32 @@ public class MyRoutinesActivity extends Activity {
     }
 
     public void loadRoutines() {
-        FileManager fm = new FileManager();
         String routine = "";
         int totalDuration = 0;
+        FileManager.refreshFiles(this);
 
-        for (int i = 0; i < fm.routineCount; i++) {
+        for (int i = 0; i < FileManager.routineCount; i++) {
             //TODO: think of a better way than just calculating etc on load
-            ArrayList<ListExercisesItem> currentRoutine =  fm.findAndReadFile(fm.fileNames.get(i), this);
+            ArrayList<ListExercisesItem> currentRoutine =  FileManager.findAndReadFile(FileManager.fileNames[i], this);
 
             for(int k = 0; k < currentRoutine.size(); k++) {
                 totalDuration += Integer.parseInt(currentRoutine.get(i).getDuration());
             }
-            routine = fm.fileNames.get(i);
+            routine = FileManager.fileNames[i];
 
             ListWorkoutItem item = new ListWorkoutItem(routine, String.valueOf(totalDuration));
             myRoutines.add(item);
         }
 
         listView.setAdapter(adapter);
+
+        for (int i = 0; i < FileManager.routineCount; i++) {
+            Log.d("test", FileManager.fileNames[i]);
+        }
+        Log.d("test", "routine count:  " + FileManager.fileNames.length);
     }
 
     public void deleteFile(int itemPosition) {
-        FileManager fm = new FileManager();
-        fm.deleteFile(fm.fileNames.get(itemPosition), this);
+        FileManager.deleteFile(FileManager.fileNames[itemPosition], this);
     }
 }

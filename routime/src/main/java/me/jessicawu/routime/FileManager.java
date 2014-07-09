@@ -16,10 +16,10 @@ import java.util.ArrayList;
  * Created by jessica on 02/07/14.
  */
 public class FileManager {
-    public static int routineCount = 0;
-    public static ArrayList<String> fileNames = new ArrayList<String>();
+    public static String[] fileNames;
+    public static int routineCount;
 
-    public void saveFile(String workoutName, ArrayList<ListExercisesItem> workout, Context context) {
+    public static void saveFile(String workoutName, ArrayList<ListExercisesItem> workout, Context context) {
         try {
             FileOutputStream outputStream = context.openFileOutput(workoutName, Context.MODE_PRIVATE);
             for (int i = 0; i < workout.size(); i++) {
@@ -30,12 +30,14 @@ public class FileManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        routineCount++;
-        fileNames.add(workoutName);
-        Log.d("test","save called!" +  workoutName + " " + routineCount);
+        Log.d("test","save called: " +  workoutName);
+
+        refreshFiles(context);
     }
 
-    public ArrayList<ListExercisesItem> findAndReadFile(String workoutName, Context context) {
+    public static ArrayList<ListExercisesItem> findAndReadFile(String workoutName, Context context) {
+        refreshFiles(context);
+
         ArrayList<ListExercisesItem> workout = new ArrayList<ListExercisesItem>();
         Boolean onExercise = true;
 
@@ -70,15 +72,14 @@ public class FileManager {
         return null;
     }
 
-    public void deleteFile(String workoutName, Context context) {
+    public static void deleteFile(String workoutName, Context context) {
         context.deleteFile(workoutName);
-        routineCount--;
-        fileNames.remove(workoutName);
-        Log.d("test", "delete called" + workoutName);
+        refreshFiles(context);
+        Log.d("test", "delete called: " + workoutName);
     }
 
     //TODO: make routines editable
-    public void editExerciseInFile(String workoutName, String toReplaceExercise, String replacementExercise,
+    public static void editExerciseInFile(String workoutName, String toReplaceExercise, String replacementExercise,
                                    String toReplaceTime, String replacementTime, Context context) {
         try {
             FileInputStream fis = context.openFileInput(workoutName);
@@ -98,9 +99,10 @@ public class FileManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        refreshFiles(context);
     }
 
-    public void editAddToFile(String workoutName, String exercise, Context context) {
+    public static void editAddToFile(String workoutName, String exercise, Context context) {
         try {
             FileInputStream fis = context.openFileInput(workoutName);
             InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
@@ -119,9 +121,15 @@ public class FileManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        refreshFiles(context);
     }
 
     public void editDeleteFromFile(String workoutName, String exercise, Context context) {
         //do this
+    }
+
+    public static void refreshFiles(Context context) {
+        fileNames = context.fileList();
+        routineCount = fileNames.length;
     }
 }
