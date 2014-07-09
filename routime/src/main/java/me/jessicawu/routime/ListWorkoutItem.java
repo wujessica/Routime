@@ -12,19 +12,19 @@ public class ListWorkoutItem {
         this.workoutDuration = duration;
     }
 
-    public String getExerciseName() {
+    public String getWorkoutName() {
         return workoutName;
     }
 
-    public String getDuration() {
+    public String getWorkoutDuration() {
         return workoutDuration;
     }
 
-    public void setExerciseName (String name) {
+    public void setWorkoutName (String name) {
         this.workoutName = name;
     }
 
-    public void setDuration (String time) {
+    public void setWorkoutDuration (String time) {
         this.workoutDuration = time;
     }
 }

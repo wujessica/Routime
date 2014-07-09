@@ -36,29 +36,31 @@ public class MyRoutinesActivity extends Activity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 showDeleteDialog(i);
-                return false;
+                return true;
             }
         });
         // ListView Item Click Listener
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view,
-//                                    int position, long id) {
-//                // ListView Clicked item index
-//                int itemPosition = position;
-//
-//                // ListView Clicked item value
-//                String itemValue = (String) listView.getItemAtPosition(position);
-//            }
-//        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                ListWorkoutItem routine = (ListWorkoutItem) listView.getItemAtPosition(position);
+                String routineName = routine.getWorkoutName();
+                startRoutine(routineName);
+            }
+        });
 
         tv = (TextView) findViewById(R.id.no_routines);
         loadRoutines();
     }
 
+    private void startRoutine(String routineName) {
+        TimerManager.startWorkout(routineName, this);
+    }
+
     public void loadRoutines() {
-        String routine = "";
+        String routine;
         int totalDuration = 0;
         FileManager.refreshFiles(this);
 
@@ -72,12 +74,14 @@ public class MyRoutinesActivity extends Activity {
                 ArrayList<ListExercisesItem> currentRoutine = FileManager.findAndReadFile(FileManager.fileNames[i], this);
 
                 for (int k = 0; k < currentRoutine.size(); k++) {
-                    totalDuration += Integer.parseInt(currentRoutine.get(i).getDuration());
+                    totalDuration += Integer.parseInt(currentRoutine.get(k).getDuration());
                 }
                 routine = FileManager.fileNames[i];
 
+
                 ListWorkoutItem item = new ListWorkoutItem(routine, String.valueOf(totalDuration));
                 myRoutines.add(item);
+                totalDuration = 0;
             }
 
             listView.setAdapter(adapter);
@@ -97,6 +101,7 @@ public class MyRoutinesActivity extends Activity {
                 .setPositiveButton(getString(R.string.button_yes),new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
                         deleteFile(itemPosition);
+                        refreshView();
                         dialog.cancel();
                     }
                 })
@@ -105,15 +110,15 @@ public class MyRoutinesActivity extends Activity {
                         dialog.cancel();
                     }
                 });
-
-        // create alert dialog
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        // show it
+        final AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
 
     public void deleteFile(int itemPosition) {
         FileManager.deleteFile(FileManager.fileNames[itemPosition], this);
+    }
+
+    public void refreshView() {
+        //TODO: set up refresh and auto remove from listivew
     }
 }

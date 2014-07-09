@@ -13,8 +13,8 @@
     <string name="button_add">ADD</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_continue">Continue</string>
-    <string name="button_pause">PAUSE</string>
-    <string name="button_restart">RESTART</string>
+    <string name="button_pause">Pause</string>
+    <string name="button_restart">Restart</string>
     <string name="button_submit">SUBMIT</string>
     <string name="button_yes">Yes</string>
 
