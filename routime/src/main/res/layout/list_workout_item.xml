@@ -25,7 +25,7 @@
         android:layout_toRightOf="@+id/workout_duration"
         android:layout_below="@+id/workout_name"
         android:textSize="@dimen/workout_duration_font_size"
-        android:text=" seconds"/>
+        android:text="@string/seconds"/>
 
     <!--<View-->
     <!--android:layout_width="match_parent"-->
