@@ -35,10 +35,7 @@
         android:layout_alignParentEnd="true"
         android:textSize="14pt"
         android:textColor="#fff"
-        android:background="#F9690E"
-
-
-        />
+        android:background="#F9690E"/>
 
     <Button
         android:id="@+id/submit"
@@ -49,7 +46,6 @@
         android:text="@string/button_submit"
         android:textSize="14pt"
         android:textColor="#fff"
-        android:background="#F22613"
-        />
+        android:background="#F22613"/>
 
 </RelativeLayout>
