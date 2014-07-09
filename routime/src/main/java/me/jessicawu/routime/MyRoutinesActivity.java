@@ -2,6 +2,8 @@ package me.jessicawu.routime;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +35,7 @@ public class MyRoutinesActivity extends Activity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                deleteFile(i);
+                showDeleteDialog(i);
                 return false;
             }
         });
@@ -84,6 +86,31 @@ public class MyRoutinesActivity extends Activity {
                 Log.d("test", FileManager.fileNames[i]);
             }
         }
+    }
+
+    public void showDeleteDialog(final int itemPosition) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        // set dialog message
+        alertDialogBuilder
+                .setMessage(getString(R.string.dialog_delete_prompt))
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.button_yes),new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        deleteFile(itemPosition);
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton(getString(R.string.button_cancel),new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // show it
+        alertDialog.show();
     }
 
     public void deleteFile(int itemPosition) {

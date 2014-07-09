@@ -55,12 +55,10 @@ public class FileManager {
                 if (onExercise) {
                     exerciseName = line;
                     onExercise = false;
-                    Log.d("test", "exercise: " + exerciseName);
                 } else {
                     duration = line;
                     ListExercisesItem item = new ListExercisesItem(exerciseName, duration);
                     workout.add(item);
-                    Log.d("test", "duration: " + duration);
                     onExercise = true;
                 }
             }
