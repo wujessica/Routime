@@ -24,7 +24,9 @@ public class FileManager {
             FileOutputStream outputStream = context.openFileOutput(workoutName, Context.MODE_PRIVATE);
             for (int i = 0; i < workout.size(); i++) {
                 outputStream.write(workout.get(i).getExerciseName().getBytes());
+                outputStream.write((""+"\n").getBytes());
                 outputStream.write(workout.get(i).getDuration().getBytes());
+                outputStream.write((""+"\n").getBytes());
             }
             outputStream.close();
         } catch (Exception e) {
@@ -39,7 +41,7 @@ public class FileManager {
         refreshFiles(context);
 
         ArrayList<ListExercisesItem> workout = new ArrayList<ListExercisesItem>();
-        Boolean onExercise = true;
+        boolean onExercise = true;
 
         try {
             FileInputStream fis = context.openFileInput(workoutName);
@@ -53,10 +55,12 @@ public class FileManager {
                 if (onExercise) {
                     exerciseName = line;
                     onExercise = false;
+                    Log.d("test", "exercise: " + exerciseName);
                 } else {
                     duration = line;
                     ListExercisesItem item = new ListExercisesItem(exerciseName, duration);
                     workout.add(item);
+                    Log.d("test", "duration: " + duration);
                     onExercise = true;
                 }
             }

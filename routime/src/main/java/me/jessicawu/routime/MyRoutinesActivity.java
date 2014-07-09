@@ -83,7 +83,6 @@ public class MyRoutinesActivity extends Activity {
             for (int i = 0; i < FileManager.routineCount; i++) {
                 Log.d("test", FileManager.fileNames[i]);
             }
-            Log.d("test", "routine count:  " + FileManager.fileNames.length);
         }
     }
 
