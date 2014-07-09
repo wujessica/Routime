@@ -4,40 +4,41 @@ import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 /**
  * Created by jessica on 24/05/14.
  */
 public class TimerManager {
-    String [][] workout = {{"squats", "5"},
-                           {"push-ups", "5"},
-                           {"sit-ups", "5"}};
+    private static ArrayList<ListExercisesItem> routine;
+    String [][] workout;
     private static int exerciseIndex = 0;
 
 
-    void startWorkout (Activity a) {
-            Bundle bundle = new Bundle();
-            bundle.putString("EXERCISE_NAME", workout[0][0]);
-            bundle.putString("TIME_STRING", workout[0][1]);
-            //Log.d("exercises", workout[i][0]);
-            TimerFragment timerFragment = new TimerFragment();
-            timerFragment.setArguments(bundle);
+    public static void startWorkout (String routineName, Activity a) {
+        routine = FileManager.findAndReadFile(routineName, a);
 
-            FragmentTransaction t = a.getFragmentManager().beginTransaction();
-            t.replace(android.R.id.content, timerFragment);
-            t.addToBackStack(null);
+        Bundle bundle = new Bundle();
+        bundle.putString("EXERCISE_NAME", routine.get(0).getExerciseName());
+        bundle.putString("TIME_STRING", routine.get(0).getDuration());
 
-            exerciseIndex = 1;
+        TimerFragment timerFragment = new TimerFragment();
+        timerFragment.setArguments(bundle);
 
-            t.commit();
+        FragmentTransaction t = a.getFragmentManager().beginTransaction();
+        t.replace(android.R.id.content, timerFragment);
+        t.addToBackStack(null);
 
+        exerciseIndex = 1;
+
+        t.commit();
     }
 
-    void nextExercise (Activity a) {
-        if (exerciseIndex < workout.length) {
+    public static void nextExercise(Activity a) {
+        if (exerciseIndex < routine.size()) {
             Bundle bundle = new Bundle();
-            bundle.putString("EXERCISE_NAME", workout[exerciseIndex][0]);
-            bundle.putString("TIME_STRING", workout[exerciseIndex][1]);
-            //Log.d("exercises", workout[i][0]);
+            bundle.putString("EXERCISE_NAME", routine.get(exerciseIndex).getExerciseName());
+            bundle.putString("TIME_STRING", routine.get(exerciseIndex).getDuration());
             TimerFragment timerFragment = new TimerFragment();
             timerFragment.setArguments(bundle);
 

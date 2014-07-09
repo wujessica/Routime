@@ -41,8 +41,8 @@ public class ListWorkoutViewAdapter extends ArrayAdapter<ListWorkoutItem> {
         } else
             holder = (ViewHolder) convertView.getTag();
 
-        holder.workoutNameTV.setText(item.getExerciseName());
-        holder.workoutDurationTV.setText(item.getDuration());
+        holder.workoutNameTV.setText(item.getWorkoutName());
+        holder.workoutDurationTV.setText(item.getWorkoutDuration());
 
         return convertView;
     }
