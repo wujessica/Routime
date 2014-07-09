@@ -93,8 +93,8 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
         String routineName = routineNameET.getText().toString();
 
         //Save everything (name and workout)
-//        FileManager fm = new FileManager();
-//        fm.saveFile(routineName, workout, this);
+        FileManager fm = new FileManager();
+        fm.saveFile(routineName, workout, this);
 
         finish();
     }

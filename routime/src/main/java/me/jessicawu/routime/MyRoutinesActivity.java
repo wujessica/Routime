@@ -3,13 +3,11 @@ package me.jessicawu.routime;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by jessica on 06/07/14.
@@ -28,19 +26,26 @@ public class MyRoutinesActivity extends Activity {
         myRoutines = new ArrayList<ListWorkoutItem>();
         adapter = new ListWorkoutViewAdapter(this, R.layout.list_workout_item, myRoutines);
 
-        // ListView Item Click Listener
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // ListView Clicked item index
-                int itemPosition = position;
-
-                // ListView Clicked item value
-                String itemValue = (String) listView.getItemAtPosition(position);
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                deleteFile(i);
+                return false;
             }
         });
+        // ListView Item Click Listener
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                // ListView Clicked item index
+//                int itemPosition = position;
+//
+//                // ListView Clicked item value
+//                String itemValue = (String) listView.getItemAtPosition(position);
+//            }
+//        });
 
         loadRoutines();
     }
@@ -66,15 +71,8 @@ public class MyRoutinesActivity extends Activity {
         listView.setAdapter(adapter);
     }
 
-//    @Override
-//    public void onDataPass(String exercise, String time) {
-//        ListExercisesItem item = new ListExercisesItem(exercise, time);
-//        workout.add(item);
-//
-//        adapter.notifyDataSetChanged();
-//
-//        // Assign adapter to ListView
-//        listView.setAdapter(adapter);
-//    }
-
+    public void deleteFile(int itemPosition) {
+        FileManager fm = new FileManager();
+        fm.deleteFile(fm.fileNames.get(itemPosition), this);
+    }
 }
