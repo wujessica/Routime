@@ -22,7 +22,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 /**
 * Created by scottso on 2014-05-29.
 */
-public class ListExercisesActivity extends Activity implements AddWorkoutDialog.OnDataPass, AddWorkoutNameDialog.OnWorkoutNamePass{
+public class ListExercisesActivity extends Activity implements AddWorkoutDialog.OnDataPass{
     private ListView  listView;
     private ArrayList<ListExercisesItem> workout;
     private ListExercisesViewAdapter adapter;
@@ -49,6 +49,12 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
                 onSubmit();
             }
         });
+
+        TextView routineName = (TextView) findViewById(R.id.routine_name);
+        Bundle bundle= getIntent().getExtras();
+        String name = bundle.getString("FILE_NAME");
+        fileName = name;
+        routineName.setText(name);
 
         listView = (ListView) findViewById(R.id.exercise_list);
         workout = new ArrayList<ListExercisesItem>();
@@ -79,15 +85,6 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
 
         // Assign adapter to ListView
         listView.setAdapter(adapter);
-    }
-
-
-    @Override
-    public void OnWorkoutNamePass(String workoutName) {
-        TextView routineName = (TextView) findViewById(R.id.routine_name);
-        routineName.setText(workoutName);
-        fileName = workoutName;
-
     }
 
 
