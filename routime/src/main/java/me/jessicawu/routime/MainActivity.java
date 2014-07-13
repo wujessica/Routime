@@ -12,7 +12,7 @@ import android.widget.Button;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener{
 
     private Button newWorkout;
     private Button loadWorkout;
@@ -60,12 +60,14 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     public void goToAddWorkout () {
-        DialogFragment newFragment = new AddWorkoutDialog();
-        newFragment.show(getFragmentManager(), "AddWorkout");
+        DialogFragment newFragment = new AddWorkoutNameDialog();
+        newFragment.show(getFragmentManager(), "AddWorkoutName");
     }
 
     public void goToMyRoutines(View v) {
         Intent intent = new Intent(this, MyRoutinesActivity.class);
         startActivity(intent);
     }
+
+
 }

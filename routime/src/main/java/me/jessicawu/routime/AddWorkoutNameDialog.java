@@ -34,7 +34,7 @@ public class AddWorkoutNameDialog extends DialogFragment {
             public void onClick(DialogInterface dialog, int id) {
                 String workName = workoutName.getText().toString();
 
-                passData(workName);
+                passWorkoutNameData(workName);
                 AddWorkoutNameDialog.this.getDialog().cancel();
             }
         });
@@ -46,10 +46,10 @@ public class AddWorkoutNameDialog extends DialogFragment {
         return builder.create();
     }
 
-    OnDataPass dataPasser;
+    OnWorkoutNamePass dataPasser;
 
-    public interface OnDataPass {
-        public void onDataPass(String workoutName);
+    public interface OnWorkoutNamePass {
+        public void OnWorkoutNamePass(String workoutName);
     }
 
 
@@ -57,7 +57,7 @@ public class AddWorkoutNameDialog extends DialogFragment {
     public void onAttach(Activity a) {
         super.onAttach(a);
         try {
-            dataPasser = (OnDataPass) a;
+            dataPasser = (OnWorkoutNamePass) a;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException(a.toString()
@@ -65,8 +65,8 @@ public class AddWorkoutNameDialog extends DialogFragment {
         }
     }
 
-    public void passData(String workoutName) {
-        dataPasser.onDataPass(workoutName);
+    public void passWorkoutNameData(String workoutName) {
+        dataPasser.OnWorkoutNamePass(workoutName);
     }
 }
 
