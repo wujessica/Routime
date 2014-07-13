@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,10 +22,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 /**
 * Created by scottso on 2014-05-29.
 */
-public class ListExercisesActivity extends Activity implements AddWorkoutDialog.OnDataPass{
+public class ListExercisesActivity extends Activity implements AddWorkoutDialog.OnDataPass, AddWorkoutNameDialog.OnWorkoutNamePass{
     private ListView  listView;
     private ArrayList<ListExercisesItem> workout;
     private ListExercisesViewAdapter adapter;
+    private String fileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +81,16 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
         listView.setAdapter(adapter);
     }
 
+
+    @Override
+    public void OnWorkoutNamePass(String workoutName) {
+        TextView routineName = (TextView) findViewById(R.id.routine_name);
+        routineName.setText(workoutName);
+        fileName = workoutName;
+
+    }
+
+
     public void onAdd() {
         DialogFragment newFragment = new AddWorkoutDialog();
         newFragment.show(getFragmentManager(), "AddWorkout");
@@ -89,13 +101,14 @@ public class ListExercisesActivity extends Activity implements AddWorkoutDialog.
     }
 
     public void onSubmit() {
-        EditText routineNameET = (EditText) findViewById(R.id.routine_name);
-        String routineName = routineNameET.getText().toString();
+
 
         //Save everything (name and workout)
         FileManager fm = new FileManager();
-        fm.saveFile(routineName, workout, this);
+        fm.saveFile(fileName, workout, this);
 
         finish();
     }
+
+
 }
