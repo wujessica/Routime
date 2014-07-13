@@ -3,6 +3,7 @@ package me.jessicawu.routime;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by jessica on 06/07/14.
@@ -26,6 +30,8 @@ public class MyRoutinesActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        CalligraphyConfig.initDefault("fonts/SourceSansPro-Black.ttf", R.attr.fontPath);
         setContentView(R.layout.activity_myroutines);
 
         listView = (ListView) findViewById(R.id.routine_list);
@@ -116,6 +122,12 @@ public class MyRoutinesActivity extends Activity {
 
     public void deleteFile(int itemPosition) {
         FileManager.deleteFile(FileManager.fileNames[itemPosition], this);
+    }
+
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
     }
 
     public void refreshView() {

@@ -1,5 +1,6 @@
 package me.jessicawu.routime;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         super.attachBaseContext(new CalligraphyContextWrapper(newBase));
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -47,7 +49,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.new_routine:
-                goToAddWorkout(v);
+                goToAddWorkout();
                 break;
 
             case R.id.load_routine:
@@ -57,9 +59,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
     }
 
-    public void goToAddWorkout(View v) {
-        Intent intent = new Intent(this, ListExercisesActivity.class);
-        startActivity(intent);
+    public void goToAddWorkout () {
+        DialogFragment newFragment = new AddWorkoutDialog();
+        newFragment.show(getFragmentManager(), "AddWorkout");
     }
 
     public void goToMyRoutines(View v) {
