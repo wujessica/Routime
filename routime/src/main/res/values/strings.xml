@@ -7,6 +7,7 @@
     <string name="hint_routine_name">Routine name</string>
     <string name="hint_exercise_input">Enter your exercise name</string>
     <string name="hint_duration_input">Enter duration of exercise in seconds</string>>
+    <string name="hint_workout_name_input">Enter name of Routime</string>
 
     <string name="dialog_delete_prompt">Are you sure you want to delete this routime?</string>
 
@@ -20,6 +21,6 @@
 
     <string name="seconds">&#160;seconds</string>
 
-    <string name="no_routines">You have no routimes. :(</string>
+    <string name="no_routines">You have no Routimes :(</string>
 
 </resources>
