@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,8 +34,11 @@ public class AddWorkoutNameDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 String workName = workoutName.getText().toString();
+                Intent intent = new Intent(getActivity(),ListExercisesActivity.class);
+                intent.putExtra("FILE_NAME",workName);
+                startActivity(intent);
 
-                passWorkoutNameData(workName);
+
                 AddWorkoutNameDialog.this.getDialog().cancel();
             }
         });
@@ -46,18 +50,16 @@ public class AddWorkoutNameDialog extends DialogFragment {
         return builder.create();
     }
 
-    OnWorkoutNamePass dataPasser;
 
-    public interface OnWorkoutNamePass {
-        public void OnWorkoutNamePass(String workoutName);
-    }
+
+
 
 
     @Override
     public void onAttach(Activity a) {
         super.onAttach(a);
         try {
-            dataPasser = (OnWorkoutNamePass) a;
+
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException(a.toString()
@@ -66,7 +68,7 @@ public class AddWorkoutNameDialog extends DialogFragment {
     }
 
     public void passWorkoutNameData(String workoutName) {
-        dataPasser.OnWorkoutNamePass(workoutName);
+
     }
 }
 
