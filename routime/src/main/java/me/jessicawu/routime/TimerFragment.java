@@ -14,11 +14,6 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-
-/**
- * Created by jessica on 23/05/14.
- */
 public class TimerFragment extends Fragment implements OnClickListener {
     private CountDownTimer countDownTimer;
     private boolean timerHasStarted = false;
@@ -35,12 +30,8 @@ public class TimerFragment extends Fragment implements OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         View v = inflater.inflate(R.layout.fragment_timer, container,
                 false);
-
-
-
 
         startingTime = Integer.parseInt(getArguments().getString("TIME_STRING"));
         startTime = startingTime * 1000;

@@ -12,9 +12,6 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-/**
- * Created by jessica on 02/07/14.
- */
 public class FileManager {
     public static String[] fileNames;
     public static int routineCount;
@@ -112,7 +109,7 @@ public class FileManager {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 if (line == exercise) {
-                    //ugh
+                    //TODO: do this part too
                 }
             }
             fis.close();
@@ -127,7 +124,7 @@ public class FileManager {
     }
 
     public void editDeleteFromFile(String workoutName, String exercise, Context context) {
-        //do this
+        //TODO: do this
     }
 
     public static void refreshFiles(Context context) {

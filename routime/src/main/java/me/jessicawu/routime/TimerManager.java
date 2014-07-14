@@ -6,14 +6,9 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-/**
- * Created by jessica on 24/05/14.
- */
 public class TimerManager {
     private static ArrayList<ListExercisesItem> routine;
-    String [][] workout;
     private static int exerciseIndex = 0;
-
 
     public static void startWorkout (String routineName, Activity a) {
         routine = FileManager.findAndReadFile(routineName, a);

@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#22A7F0"
+    android:background="@color/background_blue"
     >
 
     <TextView
@@ -12,13 +12,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="20sp"
-        android:textColor="#fff"
+        android:textColor="@color/font_colour_white"
         android:text="@string/no_routines"/>
 
     <ListView
         android:id="@+id/routine_list"
         android:layout_width="match_parent"
-        android:textColor="#fff"
+        android:textColor="@color/font_colour_white"
         android:layout_height="wrap_content"/>
 
 </LinearLayout>
