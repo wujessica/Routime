@@ -7,6 +7,6 @@
     <!--<dimen name="activity_horizontal_margin">16dp</dimen>-->
     <!--<dimen name="activity_vertical_margin">16dp</dimen>-->
 
-    <dimen name="workout_name_font_size">30sp</dimen>
-    <dimen name="workout_duration_font_size">25sp</dimen>
+    <dimen name="workout_name_font_size">12pt</dimen>
+    <dimen name="workout_duration_font_size">10pt</dimen>
 </resources>

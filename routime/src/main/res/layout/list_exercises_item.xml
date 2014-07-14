@@ -8,8 +8,8 @@
         android:id="@+id/exercise_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:textSize="30dp"
+        android:paddingBottom="2dp"
+        android:textSize="@dimen/workout_name_font_size"
         android:text="Pushups"/>
 
     <TextView
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/exercise_name"
-        android:textSize="25dp"
+        android:textSize="@dimen/workout_duration_font_size"
         android:text="30"/>
 
 </RelativeLayout>
