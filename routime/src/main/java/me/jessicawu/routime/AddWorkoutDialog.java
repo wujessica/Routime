@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddWorkoutDialog extends DialogFragment {
     private OnDataPass dataPasser;
@@ -30,8 +31,12 @@ public class AddWorkoutDialog extends DialogFragment {
                 String exerciseName = exercise.getText().toString();
                 String time = timerAmount.getText().toString();
 
-                passData(exerciseName, time);
-                AddWorkoutDialog.this.getDialog().cancel();
+                if(exerciseName.isEmpty() || time.isEmpty()) {
+                    showToast(exerciseName.isEmpty(), time.isEmpty());
+                } else {
+                    passData(exerciseName, time);
+                    AddWorkoutDialog.this.getDialog().cancel();
+                }
             }
         });
         builder.setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
@@ -40,6 +45,16 @@ public class AddWorkoutDialog extends DialogFragment {
             }
         });
         return builder.create();
+    }
+
+    private void showToast(boolean nameIsEmpty, boolean timeIsEmpty) {
+        if (nameIsEmpty && timeIsEmpty) {
+            Toast.makeText(getActivity(), R.string.toast_empty_name_and_time, Toast.LENGTH_SHORT).show();
+        } else if (nameIsEmpty) {
+            Toast.makeText(getActivity(), R.string.toast_empty_name, Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(), R.string.toast_empty_time, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public interface OnDataPass {
