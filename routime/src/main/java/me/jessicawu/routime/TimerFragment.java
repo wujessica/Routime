@@ -77,7 +77,7 @@ public class TimerFragment extends Fragment implements OnClickListener {
                 countDownTimer.cancel();
                 countDownTimer = new MyCountDownTimer(startTime, interval, this);
                 timeLeft.setText(String.valueOf(startTime / 1000) + ".00");
-                startB.setText(R.string.button_restart);
+                startB.setText(R.string.button_start);
                 timerHasStarted = false;
                 break;
         }
@@ -92,14 +92,10 @@ public class TimerFragment extends Fragment implements OnClickListener {
 
         @Override
         public void onFinish() {
-            //timeLeft.setText("Next!");
-            //destroy current fragment
             FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
             ft.remove(fragment);
 
-            //populate the next fragment
-            TimerManager tm = new TimerManager();
-            tm.nextExercise(getActivity());
+            TimerManager.nextExercise(getActivity());
 
             ft.commit();
 
