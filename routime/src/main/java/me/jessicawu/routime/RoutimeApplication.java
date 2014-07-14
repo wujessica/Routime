@@ -9,6 +9,6 @@ public class RoutimeApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        CalligraphyConfig.initDefault("fonts/SourceSansPro-Black.ttf");
+        CalligraphyConfig.initDefault("fonts/Ruda-Regular.ttf");
     }
 }
