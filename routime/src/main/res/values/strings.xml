@@ -25,5 +25,6 @@
     <string name="new_routime">New Routime</string>
     <string name="load_routime">Load Routime</string>
     <string name="button_start">Start</string>
+    <string name="dialog_delete_exercise_prompt">Delete exercise?</string>
 
 </resources>

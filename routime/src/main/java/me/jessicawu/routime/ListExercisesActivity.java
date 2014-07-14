@@ -62,7 +62,7 @@ public class ListExercisesActivity extends RoutimeActivity implements AddWorkout
     private void showDeleteDialog(final int pos) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder
-                .setMessage(getString(R.string.dialog_delete_prompt))
+                .setMessage(getString(R.string.dialog_delete_exercise_prompt))
                 .setCancelable(false)
                 .setPositiveButton(getString(R.string.button_yes),new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
