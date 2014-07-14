@@ -8,11 +8,25 @@
  >
 
     <TextView
+        android:id="@+id/routine_name"
+        android:layout_width="fill_parent"
+        android:layout_height="190px"
+        android:textSize="50dp"
+
+        android:textColor="@color/font_colour_white"
+        android:background="#3A539B"/>
+
+    <TextView
         android:id="@+id/current_exercise"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="50dp"
-        android:textColor="@color/font_colour_white"/>
+        android:textColor="@color/font_colour_white"
+        android:layout_below="@+id/routine_name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center"
+        android:paddingTop="100px"/>
 
     <TextView
         android:id="@+id/timer"
@@ -21,7 +35,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:paddingRight="10dip"
-        android:textSize="50dp"
+        android:textSize="60dp"
         android:textColor="@color/font_colour_white"/>
 
     <Button
