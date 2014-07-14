@@ -9,16 +9,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
-        android:textSize="@dimen/workout_name_font_size"
-        android:text="blah"/>
+        android:textSize="@dimen/workout_name_font_size"/>
 
     <TextView
         android:id="@+id/workout_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/workout_name"
-        android:textSize="@dimen/workout_duration_font_size"
-        android:text="30"/>
+        android:textSize="@dimen/workout_duration_font_size"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,11 +25,5 @@
         android:layout_below="@+id/workout_name"
         android:textSize="@dimen/workout_duration_font_size"
         android:text="@string/seconds"/>
-
-    <!--<View-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="1dp"-->
-    <!--android:layout_below="@+id/timer_amount"-->
-    <!--android:background="#000000" />-->
 
 </RelativeLayout>

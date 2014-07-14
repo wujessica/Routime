@@ -4,14 +4,15 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#22A7F0"
+    android:background="@color/background_blue"
  >
 
     <TextView
         android:id="@+id/current_exercise"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textSize="50dp" />
+        android:textSize="50dp"
+        android:textColor="@color/font_colour_white"/>
 
     <TextView
         android:id="@+id/timer"
@@ -20,32 +21,35 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:paddingRight="10dip"
-        android:textSize="50dp" />
+        android:textSize="50dp"
+        android:textColor="@color/font_colour_white"/>
 
     <Button
         android:id="@+id/start"
         android:layout_width="fill_parent"
         android:layout_height="160px"
-        android:text="START"
+        android:text="@string/button_start"
+        android:textAllCaps="true"
         android:textSize="14pt"
-        android:layout_above="@id/restart"
+        android:textColor="@color/font_colour_white"
+        android:layout_above="@+id/restart"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:onClick="onClick"
-        android:background="#F9690E"
-        />
+        android:background="@color/button_orange"/>
+
     <Button
         android:id="@+id/restart"
         android:layout_width="fill_parent"
         android:layout_height="160px"
-        android:text="RESTART"
+        android:text="@string/button_restart"
+        android:textAllCaps="true"
         android:textSize="14pt"
+        android:textColor="@color/font_colour_white"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:onClick="onClick"
-        android:background="#F22613"
-        />
-
+        android:background="@color/button_red"/>
 
 </RelativeLayout>

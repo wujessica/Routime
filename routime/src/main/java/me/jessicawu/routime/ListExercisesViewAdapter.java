@@ -10,9 +10,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by jessica on 06/07/14.
- */
 public class ListExercisesViewAdapter extends ArrayAdapter<ListExercisesItem> {
     Context context;
 

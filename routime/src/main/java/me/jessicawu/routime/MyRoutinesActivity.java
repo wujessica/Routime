@@ -1,9 +1,6 @@
 package me.jessicawu.routime;
 
-
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,24 +11,17 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
-/**
- * Created by jessica on 06/07/14.
- */
-public class MyRoutinesActivity extends Activity {
+public class MyRoutinesActivity extends RoutimeActivity {
     private ListView listView;
     private ArrayList<ListWorkoutItem> myRoutines;
     private ListWorkoutViewAdapter adapter;
 
-    private TextView tv;
+    private TextView noRoutimesTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        CalligraphyConfig.initDefault("fonts/SourceSansPro-Black.ttf", R.attr.fontPath);
         setContentView(R.layout.activity_myroutines);
 
         listView = (ListView) findViewById(R.id.routine_list);
@@ -45,7 +35,7 @@ public class MyRoutinesActivity extends Activity {
                 return true;
             }
         });
-        // ListView Item Click Listener
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -57,7 +47,7 @@ public class MyRoutinesActivity extends Activity {
             }
         });
 
-        tv = (TextView) findViewById(R.id.no_routines);
+        noRoutimesTV = (TextView) findViewById(R.id.no_routines);
         loadRoutines();
     }
 
@@ -71,9 +61,9 @@ public class MyRoutinesActivity extends Activity {
         FileManager.refreshFiles(this);
 
         if (FileManager.routineCount == 0) {
-            tv.setVisibility(View.VISIBLE);
+            noRoutimesTV.setVisibility(View.VISIBLE);
         } else {
-            tv.setVisibility(View.GONE);
+            noRoutimesTV.setVisibility(View.GONE);
 
             for (int i = 0; i < FileManager.routineCount; i++) {
                 //TODO: think of a better way than just calculating etc on load
@@ -100,14 +90,13 @@ public class MyRoutinesActivity extends Activity {
 
     public void showDeleteDialog(final int itemPosition) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        // set dialog message
         alertDialogBuilder
                 .setMessage(getString(R.string.dialog_delete_prompt))
                 .setCancelable(false)
                 .setPositiveButton(getString(R.string.button_yes),new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
                         deleteFile(itemPosition);
-                        refreshView();
+                        refreshView(itemPosition);
                         dialog.cancel();
                     }
                 })
@@ -124,13 +113,9 @@ public class MyRoutinesActivity extends Activity {
         FileManager.deleteFile(FileManager.fileNames[itemPosition], this);
     }
 
-
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(new CalligraphyContextWrapper(newBase));
-    }
-
-    public void refreshView() {
-        //TODO: set up refresh and auto remove from listivew
+    public void refreshView(int pos) {
+        //TODO: set up refresh and auto remove from listview
+        adapter.remove(adapter.getItem(pos));
+        adapter.notifyDataSetChanged();
     }
 }
