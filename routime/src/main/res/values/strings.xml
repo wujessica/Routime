@@ -11,16 +11,20 @@
 
     <string name="dialog_delete_prompt">Are you sure you want to delete this routime?</string>
 
-    <string name="button_add">ADD</string>
+    <string name="button_add">Add</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_continue">Continue</string>
     <string name="button_pause">Pause</string>
     <string name="button_restart">Restart</string>
-    <string name="button_submit">SUBMIT</string>
+    <string name="button_submit">Submit</string>
     <string name="button_yes">Yes</string>
 
     <string name="seconds">&#160;seconds</string>
 
     <string name="no_routines">You have no Routimes :(</string>
+    <string name="new_routime">New Routime</string>
+    <string name="load_routime">Load Routime</string>
+    <string name="button_start">Start</string>
+    <string name="dialog_delete_exercise_prompt">Delete exercise?</string>
 
 </resources>

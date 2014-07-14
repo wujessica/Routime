@@ -20,10 +20,4 @@
         android:textSize="25dp"
         android:text="30"/>
 
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="1dp"-->
-        <!--android:layout_below="@+id/timer_amount"-->
-        <!--android:background="#000000" />-->
-
 </RelativeLayout>

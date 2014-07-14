@@ -1,8 +1,5 @@
 package me.jessicawu.routime;
 
-/**
- * Created by jessica on 06/07/14.
- */
 public class ListWorkoutItem {
     private String workoutName;
     private String workoutDuration;

@@ -14,11 +14,6 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-
-/**
- * Created by jessica on 23/05/14.
- */
 public class TimerFragment extends Fragment implements OnClickListener {
     private CountDownTimer countDownTimer;
     private boolean timerHasStarted = false;
@@ -35,12 +30,8 @@ public class TimerFragment extends Fragment implements OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         View v = inflater.inflate(R.layout.fragment_timer, container,
                 false);
-
-
-
 
         startingTime = Integer.parseInt(getArguments().getString("TIME_STRING"));
         startTime = startingTime * 1000;
@@ -86,7 +77,7 @@ public class TimerFragment extends Fragment implements OnClickListener {
                 countDownTimer.cancel();
                 countDownTimer = new MyCountDownTimer(startTime, interval, this);
                 timeLeft.setText(String.valueOf(startTime / 1000) + ".00");
-                startB.setText(R.string.button_restart);
+                startB.setText(R.string.button_start);
                 timerHasStarted = false;
                 break;
         }
@@ -101,14 +92,10 @@ public class TimerFragment extends Fragment implements OnClickListener {
 
         @Override
         public void onFinish() {
-            //timeLeft.setText("Next!");
-            //destroy current fragment
             FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
             ft.remove(fragment);
 
-            //populate the next fragment
-            TimerManager tm = new TimerManager();
-            tm.nextExercise(getActivity());
+            TimerManager.nextExercise(getActivity());
 
             ft.commit();
 

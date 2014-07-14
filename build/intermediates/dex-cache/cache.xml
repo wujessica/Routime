@@ -2,10 +2,10 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/scottso/Routime/routime/build/intermediates/pre-dexed/debug/calligraphy-1.0.0-84d6709eed7e2ba78bf9611e5386e435e41dfc20.jar"
-        jar="/Users/scottso/.gradle/caches/modules-2/files-2.1/uk.co.chrisjenx/calligraphy/1.0.0/dbc9b5d6f818720e04200d8a9b3c573855d0d0/calligraphy-1.0.0.jar"
+        dex="/Users/scottso/Routime/routime/build/intermediates/pre-dexed/debug/calligraphy-0.7.2-2957ab1aeadd6351f7c910ee674cd474990c7363.jar"
+        jar="/Users/scottso/.gradle/caches/modules-2/files-2.1/uk.co.chrisjenx/calligraphy/0.7.2/6a4194ce16b6e95e6294523d1068d484d1f48904/calligraphy-0.7.2.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="00dbc9b5d6f818720e04200d8a9b3c573855d0d0"/>
+        sha1="6a4194ce16b6e95e6294523d1068d484d1f48904"/>
 
 </pre-dex-items>
