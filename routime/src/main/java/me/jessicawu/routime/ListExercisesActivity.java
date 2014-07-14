@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -95,7 +96,11 @@ public class ListExercisesActivity extends RoutimeActivity implements AddWorkout
     }
 
     public void onSubmit() {
-        FileManager.saveFile(fileName, workout, this);
-        finish();
+        if (workout.isEmpty()) {
+            Toast.makeText(this, R.string.toast_empty_routine_warning, Toast.LENGTH_SHORT).show();
+        } else {
+            FileManager.saveFile(fileName, workout, this);
+            finish();
+        }
     }
 }

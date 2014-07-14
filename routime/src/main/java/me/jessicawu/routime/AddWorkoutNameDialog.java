@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddWorkoutNameDialog extends DialogFragment {
 
@@ -26,11 +27,15 @@ public class AddWorkoutNameDialog extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 String workName = workoutName.getText().toString();
-                Intent intent = new Intent(getActivity(),ListExercisesActivity.class);
-                intent.putExtra("FILE_NAME",workName);
-                startActivity(intent);
+                if (workName.isEmpty()) {
+                    Toast.makeText(getActivity(), R.string.toast_empty_routine_name, Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(getActivity(), ListExercisesActivity.class);
+                    intent.putExtra("FILE_NAME", workName);
+                    startActivity(intent);
 
-                AddWorkoutNameDialog.this.getDialog().cancel();
+                    AddWorkoutNameDialog.this.getDialog().cancel();
+                }
             }
         });
         builder.setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {

@@ -26,5 +26,10 @@
     <string name="load_routime">Load Routime</string>
     <string name="button_start">Start</string>
     <string name="dialog_delete_exercise_prompt">Delete exercise?</string>
+    <string name="toast_empty_routine_warning">Routime cannot be empty.</string>
+    <string name="toast_empty_name">Please enter an exercise name.</string>
+    <string name="toast_empty_name_and_time">Please enter an exercise and time.</string>
+    <string name="toast_empty_time">Please enter a time.</string>
+    <string name="toast_empty_routine_name">Routime must have a name.</string>
 
 </resources>
