@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 public class TimerFragment extends Fragment implements OnClickListener {
+
     private CountDownTimer countDownTimer;
     private boolean timerHasStarted = false;
     private Button startB;
