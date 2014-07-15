@@ -32,4 +32,5 @@
     <string name="toast_empty_time">Please enter a time.</string>
     <string name="toast_empty_routine_name">Routime must have a name.</string>
 
+    <string name="routimes">ROUTIMES</string>
 </resources>
