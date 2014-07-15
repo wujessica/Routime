@@ -12,6 +12,7 @@
         android:layout_width="fill_parent"
         android:layout_height="190px"
         android:textSize="50dp"
+        android:gravity="center"
         android:textColor="@color/font_colour_white"
         android:background="@color/header_blue"/>
 

@@ -12,6 +12,8 @@
         android:textSize="@dimen/workout_name_font_size"
         android:text="Pushups"/>
 
+
+
     <TextView
         android:id="@+id/timer_amount"
         android:layout_width="wrap_content"
