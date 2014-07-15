@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class TimerManager {
     private static ArrayList<ListExercisesItem> routine;
     private static int exerciseIndex = 0;
+    public static String ROUTINE_NAME;
 
     public static void startWorkout (String routineName, Activity a) {
         routine = FileManager.findAndReadFile(routineName, a);
@@ -16,6 +17,7 @@ public class TimerManager {
         Bundle bundle = new Bundle();
         bundle.putString("EXERCISE_NAME", routine.get(0).getExerciseName());
         bundle.putString("TIME_STRING", routine.get(0).getDuration());
+        ROUTINE_NAME = routineName;
 
         TimerFragment timerFragment = new TimerFragment();
         timerFragment.setArguments(bundle);
@@ -34,6 +36,7 @@ public class TimerManager {
             Bundle bundle = new Bundle();
             bundle.putString("EXERCISE_NAME", routine.get(exerciseIndex).getExerciseName());
             bundle.putString("TIME_STRING", routine.get(exerciseIndex).getDuration());
+
             TimerFragment timerFragment = new TimerFragment();
             timerFragment.setArguments(bundle);
 

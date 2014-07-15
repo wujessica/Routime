@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class AddWorkoutNameDialog extends DialogFragment {
-
+    public static final String FILE_NAME = "FILE_NAME";
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -31,7 +31,7 @@ public class AddWorkoutNameDialog extends DialogFragment {
                     Toast.makeText(getActivity(), R.string.toast_empty_routine_name, Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(getActivity(), ListExercisesActivity.class);
-                    intent.putExtra("FILE_NAME", workName);
+                    intent.putExtra(FILE_NAME, workName);
                     startActivity(intent);
 
                     AddWorkoutNameDialog.this.getDialog().cancel();
