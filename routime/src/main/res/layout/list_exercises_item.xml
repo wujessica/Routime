@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
         android:textSize="@dimen/workout_name_font_size"
         android:text="Pushups"/>
 
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/exercise_name"
         android:paddingBottom="5dp"
+        android:paddingLeft="15dp"
         android:textSize="@dimen/workout_duration_font_size"
         android:text="30"/>
 
