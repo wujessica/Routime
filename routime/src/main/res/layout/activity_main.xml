@@ -35,6 +35,6 @@
         android:layout_alignStart="@+id/new_routine"
         android:background="@color/button_red"/>
 
-   
+
 
 </RelativeLayout>
