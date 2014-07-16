@@ -20,13 +20,9 @@ public class TimerFragment extends Fragment implements OnClickListener {
     private boolean timerHasStarted = false;
     private Button startB;
     private Button restartB;
-
-    public TextView fileName;
-
     private TextView timeLeft;
     private TextView exerciseNameTV;
     private TextView routineNameTV;
-
     private int startingTime = 0;
     private long startTime = 0;
     private final long interval = 5;
@@ -38,9 +34,6 @@ public class TimerFragment extends Fragment implements OnClickListener {
 
         View v = inflater.inflate(R.layout.fragment_timer, container,
                 false);
-
-        fileName = (TextView) v.findViewById(R.id.routine_name);
-        fileName.setText(getArguments().getString("FILE_NAME"));
 
         startingTime = Integer.parseInt(getArguments().getString("TIME_STRING"));
         startTime = startingTime * 1000;

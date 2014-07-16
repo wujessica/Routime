@@ -2,8 +2,8 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/scottso/Routime/routime/build/intermediates/pre-dexed/debug/calligraphy-0.7.2-2957ab1aeadd6351f7c910ee674cd474990c7363.jar"
-        jar="/Users/scottso/.gradle/caches/modules-2/files-2.1/uk.co.chrisjenx/calligraphy/0.7.2/6a4194ce16b6e95e6294523d1068d484d1f48904/calligraphy-0.7.2.jar"
+        dex="/home/jessica/AndroidStudioProjects/Routime/routime/build/intermediates/pre-dexed/debug/calligraphy-0.7.2-8916a863132a04d4cfaa277d4f4cc54b01ff7972.jar"
+        jar="/home/jessica/.gradle/caches/modules-2/files-2.1/uk.co.chrisjenx/calligraphy/0.7.2/6a4194ce16b6e95e6294523d1068d484d1f48904/calligraphy-0.7.2.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="6a4194ce16b6e95e6294523d1068d484d1f48904"/>
