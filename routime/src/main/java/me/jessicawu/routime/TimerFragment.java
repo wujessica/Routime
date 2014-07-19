@@ -2,9 +2,15 @@ package me.jessicawu.routime;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.os.CountDownTimer;
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -96,10 +102,19 @@ public class TimerFragment extends Fragment implements OnClickListener {
 
         @Override
         public void onFinish() {
-            FragmentTransaction ft = getActivity().getFragmentManager().beginTransaction();
+            final Activity activity = getActivity();
+            NotificationCompat.Builder builder =
+                    new NotificationCompat.Builder(activity);
+            Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            builder.setSound(alarmSound);
+            //builder.setDefaults(Notification.DEFAULT_VIBRATE);
+            NotificationManager manager = (NotificationManager) activity.getSystemService(Context.NOTIFICATION_SERVICE);
+            manager.notify(1, builder.build());
+
+            FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
             ft.remove(fragment);
 
-            TimerManager.nextExercise(getActivity());
+            TimerManager.nextExercise(activity);
 
             ft.commit();
 
