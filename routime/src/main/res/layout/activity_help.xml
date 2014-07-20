@@ -17,12 +17,32 @@
         android:background="@color/header_blue"
         android:text="@string/button_help"/>
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:paddingTop="50sp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
         android:text="@string/help_instructions"
-        android:textSize="10pt"
-        android:id="@+id/textView"
- />
+        android:layout_gravity="center_horizontal" >
+
+        <LinearLayout
+
+    android:layout_width="fill_parent"
+     android:layout_height="fill_parent"
+       android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textSize="10pt"
+                android:paddingTop="50sp"
+                android:paddingLeft="40sp"
+                android:paddingRight="40sp"
+                android:text="@string/help_instructions"
+                />
+
+
+
+            </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
