@@ -3,13 +3,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:background="@color/background_blue">
+
+
+    <TextView
+        android:id="@+id/help"
+        android:layout_width="fill_parent"
+        android:layout_height="190px"
+        android:layout_gravity="center"
+        android:textSize="50sp"
+        android:textColor="@color/font_colour_white"
+        android:gravity="center"
+        android:background="@color/header_blue"
+        android:text="@string/button_help"/>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:paddingTop="50sp"
         android:text="@string/help_instructions"
-        android:textSize="12pt"
+        android:textSize="10pt"
         android:id="@+id/textView"
  />
 </LinearLayout>

@@ -35,14 +35,17 @@
 
     <string name="routimes">ROUTIMES</string>
 
-    <string name="help_instructions">Hi and welcome to Routime, a fitness app that helps you keep track of your interval workout! (Hence, Routime -> time + routine!)
+    <string name="help_instructions"><p>Hi and welcome to Routime, a fitness app that helps you keep track of your interval workout! (Hence, Routime -> time + routine!)</p>
 
-NEW ROUTIME
-To CREATE a workout routine, simply press the NEW ROUTIME button. You will be prompted to enter the title of your routine and afterwards, add the name of the exercise and its duration. List out your exercises and then press SUBMIT to save your workout.
-To DELETE an entry, simply tap on the exercise.
+        <br />
+<p>NEW ROUTIME <br />
+To CREATE a workout routine, simply press the <b>NEW ROUTIME</b> button. You will be prompted to enter the title of your routine and afterwards, add the name of the exercise and its duration. List out your exercises and then press SUBMIT to save your workout.
+To DELETE an entry, simply tap on the exercise.</p>
 
-LOAD ROUTIMES
+<p>LOAD ROUTIMES
 To VIEW your saved routines, press the LOAD ROUTIMES button.
 To START the routine, press its name and you will be directed to timers that will go through each exercise automatically, sending out a notification noise when it is time to switch. Remember to keep your sound on!
-To DELETE any saved routines, long press its name.</string>
+To DELETE any saved routines, long press its name. </p>
+
+    </string>
 </resources>

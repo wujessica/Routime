@@ -11,6 +11,7 @@ public class MainActivity extends RoutimeActivity implements View.OnClickListene
 
     private Button newWorkout;
     private Button loadWorkout;
+    private Button help;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,10 @@ public class MainActivity extends RoutimeActivity implements View.OnClickListene
 
         loadWorkout = (Button) this.findViewById(R.id.load_routine);
         loadWorkout.setOnClickListener(this);
+
+        help = (Button) this.findViewById(R.id.help);
+        help.setOnClickListener(this);
+
     }
 
     @Override
