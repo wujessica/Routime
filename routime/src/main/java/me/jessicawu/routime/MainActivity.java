@@ -30,6 +30,7 @@ public class MainActivity extends RoutimeActivity implements View.OnClickListene
         return true;
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -39,6 +40,10 @@ public class MainActivity extends RoutimeActivity implements View.OnClickListene
 
             case R.id.load_routine:
                 goToMyRoutines();
+                break;
+
+            case R.id.help:
+                goToHelp();
                 break;
         }
     }
@@ -50,6 +55,11 @@ public class MainActivity extends RoutimeActivity implements View.OnClickListene
 
     public void goToMyRoutines() {
         Intent intent = new Intent(this, MyRoutinesActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToHelp() {
+        Intent intent = new Intent(this, HelpActivity.class);
         startActivity(intent);
     }
 }

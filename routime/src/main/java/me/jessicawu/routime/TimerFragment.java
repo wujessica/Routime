@@ -103,8 +103,7 @@ public class TimerFragment extends Fragment implements OnClickListener {
         @Override
         public void onFinish() {
             final Activity activity = getActivity();
-            NotificationCompat.Builder builder =
-                    new NotificationCompat.Builder(activity);
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(activity);
             Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             builder.setSound(alarmSound);
             //builder.setDefaults(Notification.DEFAULT_VIBRATE);

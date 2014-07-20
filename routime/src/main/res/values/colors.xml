@@ -7,7 +7,13 @@
     <color name="header_blue">#3A539B</color>
 
     <color name="button_red">#F22613</color>
+    <color name="button_red_pressed">#C0392B</color>
+
     <color name="button_orange">#F9690E</color>
+    <color  name="button_orange_pressed">#D35400</color>
+
+    <color name="button_blue">#4183D7</color>
+    <color name="button_blue_pressed">#3A539B</color>
 
     <color name="dialog_background">#FFFFBB33</color>
 
